@@ -1,28 +1,45 @@
-## Build results
+## Derleme çıktıları
 bin/
 obj/
 out/
 
-## User-specific files
+## Kullanıcıya özel dosyalar
 *.user
 *.suo
 *.userosscache
 *.sln.docstates
 
-## Visual Studio Code
+## VS Code
 .vscode/
 
-## Logs
+## Log dosyaları
 *.log
 
-## Others
+## ASP.NET Core gizli yapılandırmalar
+appsettings.Development.json
+appsettings.Local.json
+secrets.json
+
+## Paket klasörleri
+*.nupkg
+packages/
+
+## Veritabanı dosyaları
 *.db
 *.sqlite
 
-# ASP.NET
-appsettings.*.json
-secrets.json
+## dotnet CLI
+project.lock.json
+project.fragment.lock.json
 
-# Paketler
-*.nupkg
-packages/
+## Rider / JetBrains
+.idea/
+
+## Publish çıktısı
+wwwroot/dist/
+publish/
+*.Publish.xml
+
+## Diğer
+.env
+.env.*
