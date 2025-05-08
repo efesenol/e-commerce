@@ -1,21 +1,31 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using e_commerce.Models;
+using e_commerce.data;
+using e_commerce.Entities;
+using System.Data;
 
 namespace e_commerce.Controllers;
 
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
+    public readonly MyContext _context;
 
-    public HomeController(ILogger<HomeController> logger)
+    public HomeController(ILogger<HomeController> logger, MyContext context)
     {
         _logger = logger;
-    }
+        _context = context;
 
+    }
     public IActionResult Index()
     {
-        return View();
+        var viewModel = new ViewModel();
+        viewModel.Users = _context.Users.Where(x => x.fullName == "efe").ToList();
+
+        
+
+        return View(viewModel);
     }
 
     public IActionResult Privacy()
