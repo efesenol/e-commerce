@@ -1,0 +1,28 @@
+## Build results
+bin/
+obj/
+out/
+
+## User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+## Visual Studio Code
+.vscode/
+
+## Logs
+*.log
+
+## Others
+*.db
+*.sqlite
+
+# ASP.NET
+appsettings.*.json
+secrets.json
+
+# Paketler
+*.nupkg
+packages/
