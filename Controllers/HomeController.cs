@@ -21,14 +21,16 @@ public class HomeController : Controller
     public IActionResult Index()
     {
         var viewModel = new ViewModel();
+        viewModel.Products = _context.Products.Where(x => x.active == true).ToList();
+        return View(viewModel);
+    }
+    [Route("kategoriler")]
+    public IActionResult Privacy()
+    {
+        var viewModel = new ViewModel();
         viewModel.Users = _context.Users.Where(x => x.fullName == "efe").ToList();
         viewModel.Products = _context.Products.Where(y => y.active == true).ToList();
         return View(viewModel);
-    }
-
-    public IActionResult Privacy()
-    {
-        return View();
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

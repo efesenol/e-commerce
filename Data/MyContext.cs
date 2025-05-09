@@ -12,6 +12,7 @@ namespace e_commerce.data
 
         public DbSet<Users> Users => Set<Users>();
         public DbSet<Products> Products => Set<Products>();
+        public DbSet<Menus> Menus => Set<Menus>();
        
 
 

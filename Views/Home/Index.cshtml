@@ -1,16 +1,108 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
-@model ViewModel
-<div class="text-center">
-    @foreach ( var item in Model.Users!){
-        <h1>@item.email</h1>
+﻿@model ViewModel
 
-    }
-    @foreach ( var item in Model.Products!){
-        <h1>@item.price TL</h1>
+<div class="featured-boxes featured-boxes-style-2">
+    <div class="row">
+        <div class="col-lg-2">
+            <div class="featured-box featured-box-primary featured-box-effect-4">
+                <div class="box-content">
+                    <a href="/kategoriler" style="text-decoration: none;">
+                        <i class="icon-featured far fa-heart"></i>
+                        <h4 class="font-weight-normal text-4">Yemek</h4>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-2">
+            <div class="featured-box featured-box-primary featured-box-effect-4">
+                <div class="box-content">
+                    <a href="/kategoriler" style="text-decoration: none;">
+                        <i class="icon-featured far fa-heart"></i>
+                        <h4 class="font-weight-normal text-4">İyi Fiyatlı Ürünler</h4>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-2">
+            <div class="featured-box featured-box-primary featured-box-effect-4">
+                <div class="box-content">
+                    <a href="/kategoriler" style="text-decoration: none;">
+                        <i class="icon-featured far fa-heart"></i>
+                        <h4 class="font-weight-normal text-4">Sen De Al!</h4>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-2">
+            <div class="featured-box featured-box-primary featured-box-effect-4">
+                <div class="box-content">
+                    <a href="/kategoriler" style="text-decoration: none;">
+                        <i class="icon-featured far fa-heart"></i>
+                        <h4 class="font-weight-normal text-4">Avantajlı Ürünler</h4>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-2">
+            <div class="featured-box featured-box-primary featured-box-effect-4">
+                <div class="box-content">
+                    <a href="/kategoriler" style="text-decoration: none;">
+                        <i class="icon-featured far fa-heart"></i>
+                        <h4 class="font-weight-normal text-4">İndirim Kuponlarım</h4>
+                    </a>
 
-    }
-    <h1 class="display-4"></h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-2">
+            <div class="featured-box featured-box-primary featured-box-effect-4">
+                <div class="box-content">
+                    <a href="/kategoriler" style="text-decoration: none;">
+                        <i class="icon-featured far fa-heart"></i>
+                        <h4 class="font-weight-normal text-4">Yeni Gelen Ürünler</h4>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
 </div>
+<div class="row">
+    <div class="col-3">
+        <a href="#" class="btn w-100 mb-2"
+            style="background-color: rgba(13, 110, 253, 0.4); color: white;font-size: 16px;">Sepete en çok
+            eklenenler</a>
+    </div>
+    <div class="col-3">
+        <a href="#" class="btn w-100 mb-2"
+            style="background-color: rgba(255, 0, 0, 0.2); color: brown;font-size: 16px;">En çok öne çıkanlar</a>
+    </div>
+    <div class="col-3">
+        <a href="#" class="btn w-100 mb-2" style="background-color:#effbf5; color: green;font-size: 16px;">Flaş
+            Ürünler</a>
+    </div>
+    <div class="col-3">
+        <a href="#" class="btn w-100 mb-2" style="background-color:#fef4ec; color: #b6520a;font-size: 16px;">Kampanya
+            Detayları</a>
+    </div>
+</div>
+<br><br><br>
+<div class="row">
+    <div class="col">
+        <h4 class="text-center">Navigation on Title Both Sides</h4>
+        <div class="owl-carousel owl-theme show-nav-title show-nav-title-both-sides owl-loaded owl-drag owl-carousel-init"
+            data-plugin-options="{'items': 6, 'margin': 10, 'loop': false, 'nav': true, 'dots': false}"
+            style="height: auto;">
+            <div class="owl-stage-outer">
+                    <div class="owl-item active" style="width: 177.667px; margin-right: 10px;">
+                        <div>
+                            <img alt="" class="img-fluid rounded" src="img/projects/project-1.jpg">
+                        </div>
+                    </div>
+            </div>
+            <div class="owl-nav"><button type="button" role="presentation" class="owl-prev disabled"></button><button
+                    type="button" role="presentation" class="owl-next"></button></div>
+            <div class="owl-dots disabled"></div>
+        </div>
+    </div>
+</div>
+
