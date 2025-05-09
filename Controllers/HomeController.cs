@@ -22,9 +22,7 @@ public class HomeController : Controller
     {
         var viewModel = new ViewModel();
         viewModel.Users = _context.Users.Where(x => x.fullName == "efe").ToList();
-
-        
-
+        viewModel.Products = _context.Products.Where(y => y.active == true).ToList();
         return View(viewModel);
     }
 

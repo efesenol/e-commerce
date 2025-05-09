@@ -5,11 +5,16 @@ using System.Threading.Tasks;
 
 namespace e_commerce.Entities
 {
-    public class User
+    public class Users
     {
         public int id { get; set; }
         public string? fullName { get; set; }
         public string? email { get; set; }
         public string? password { get; set; }
+        public int basketId { get; set; }
+        public int productId { get; set; }
+        public bool active { get; set; }
+        public bool deleted { get; set; }
+        public DateTime? createTime { get; set; }
     }
 }

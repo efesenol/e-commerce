@@ -8,7 +8,8 @@ namespace e_commerce.Models
 {
     public class ViewModel
     {
-        public List<User>? Users { get; set; } = new();
+        public List<Users>? Users { get; set; } 
+        public List<Products>? Products { get; set; } 
 
     }
 }

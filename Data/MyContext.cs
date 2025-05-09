@@ -10,7 +10,8 @@ namespace e_commerce.data
 
         }
 
-        public DbSet<User> Users => Set<User>();
+        public DbSet<Users> Users => Set<Users>();
+        public DbSet<Products> Products => Set<Products>();
        
 
 
