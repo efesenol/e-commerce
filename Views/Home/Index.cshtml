@@ -1,4 +1,59 @@
 ﻿@model ViewModel
+<style>
+    li {
+        list-style-type: none;
+    }
+
+    a {
+        color: grey;
+    }
+
+    .card-img-top {
+        width: 100%;
+        /* kartın genişliğini tam kaplasın */
+        height: 200px;
+        /* istediğine göre artır/azalt */
+        object-fit: cover;
+        /* görseli taşırmadan ortala ve kırp */
+        border-top-left-radius: 0.5rem;
+        /* istersen köşeleri yumuşatabilirsin */
+        border-top-right-radius: 0.5rem;
+    }
+
+    .card {
+        width: 100%;
+        /* responsive kalması için */
+    }
+
+    .heart-icon {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 20px;
+        color: #ccc;
+        cursor: pointer;
+        z-index: 2;
+        transition: color 0.3s;
+    }
+
+    .heart-icon.liked {
+        color: red;
+    }
+
+    @@media only screen and (max-width: 600px) {
+        .box-content {
+
+            display: none;
+        }
+
+        .buton {
+
+            display: none;
+        }
+    }
+
+    yyyy
+</style>
 
 <div class="featured-boxes featured-boxes-style-2">
     <div class="row">
@@ -68,41 +123,233 @@
 </div>
 <div class="row">
     <div class="col-3">
-        <a href="#" class="btn w-100 mb-2"
+        <a href="#" class="btn w-100 mb-2 buton"
             style="background-color: rgba(13, 110, 253, 0.4); color: white;font-size: 16px;">Sepete en çok
             eklenenler</a>
     </div>
     <div class="col-3">
-        <a href="#" class="btn w-100 mb-2"
+        <a href="#" class="btn w-100 mb-2 buton"
             style="background-color: rgba(255, 0, 0, 0.2); color: brown;font-size: 16px;">En çok öne çıkanlar</a>
     </div>
     <div class="col-3">
-        <a href="#" class="btn w-100 mb-2" style="background-color:#effbf5; color: green;font-size: 16px;">Flaş
+        <a href="#" class="btn w-100 mb-2 buton" style="background-color:#effbf5; color: green;font-size: 16px;">Flaş
             Ürünler</a>
     </div>
     <div class="col-3">
-        <a href="#" class="btn w-100 mb-2" style="background-color:#fef4ec; color: #b6520a;font-size: 16px;">Kampanya
+        <a href="#" class="btn w-100 mb-2 buton"
+            style="background-color:#fef4ec; color: #b6520a;font-size: 16px;">Kampanya
             Detayları</a>
     </div>
 </div>
 <br><br><br>
 <div class="row">
     <div class="col">
-        <h4 class="text-center">Navigation on Title Both Sides</h4>
-        <div class="owl-carousel owl-theme show-nav-title show-nav-title-both-sides owl-loaded owl-drag owl-carousel-init"
-            data-plugin-options="{'items': 6, 'margin': 10, 'loop': false, 'nav': true, 'dots': false}"
-            style="height: auto;">
-            <div class="owl-stage-outer">
-                    <div class="owl-item active" style="width: 177.667px; margin-right: 10px;">
-                        <div>
-                            <img alt="" class="img-fluid rounded" src="img/projects/project-1.jpg">
-                        </div>
+        <h4>Öne Çıkan Ürünler</h4>
+        <div class="owl-carousel owl-theme nav-style-1" id="product-carousel">
+            @foreach (var item in Model.Products!)
+            {
+                <div class="card position-relative">
+                    <i class="fa-regular fa-heart heart-icon"></i>
+                    <img class="card-img-top" src="img/@item.img" alt="Card Image">
+                    <div class="card-body">
+                        <h4 class="card-title mb-1 text-4 font-weight-bold">@item.name</h4>
+                        <p class="card-text mb-2 pb-1">@item.description</p>
+                        <p class="card-text mb-2 pb-1">@item.price TL</p>
+                        <a href="#" class="read-more text-color-primary font-weight-semibold text-2">Read More <i
+                                class="fas fa-angle-right position-relative top-1 ms-1"></i></a>
                     </div>
-            </div>
-            <div class="owl-nav"><button type="button" role="presentation" class="owl-prev disabled"></button><button
-                    type="button" role="presentation" class="owl-next"></button></div>
-            <div class="owl-dots disabled"></div>
+                </div>
+
+
+            }
         </div>
+
     </div>
 </div>
 
+<br><br><br>
+<div class="row">
+    <div class="col">
+        <h4>İndirimli Ürünler</h4>
+        <div class="owl-carousel owl-theme nav-style-1" id="product-carousel">
+            @foreach (var item in Model.Products!)
+            {
+                <div class="card position-relative">
+                    <i class="fa-regular fa-heart heart-icon"></i>
+                    <img class="card-img-top" src="img/@item.img" alt="Card Image">
+                    <div class="card-body">
+                        <h4 class="card-title mb-1 text-4 font-weight-bold">@item.name</h4>
+                        <p class="card-text mb-2 pb-1">@item.description</p>
+                        <p class="card-text mb-2 pb-1">@item.price TL</p>
+                        <a href="#" class="read-more text-color-primary font-weight-semibold text-2">Read More <i
+                                class="fas fa-angle-right position-relative top-1 ms-1"></i></a>
+                    </div>
+                </div>
+
+
+            }
+        </div>
+
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-6">
+        <div class="row">
+            <h4>Popüler Marka ve Mağazalar</h4>
+            <div class="col-4">
+                <ul>
+                    <li><a href="">Penti</a></li>
+                    <li><a href="">Watsons</a></li>
+                    <li><a href="">Columbia</a></li>
+                    <li><a href="">Puma</a></li>
+                    <li><a href="">Apple</a></li>
+                    <li><a href="">Xiaomi</a></li>
+                    <li><a href="">Birkenstock</a></li>
+                    <li><a href="">Adidas</a></li>
+                    <li><a href="">Lacoste</a></li>
+                    <li><a href="">Madame Coco</a></li>
+                    <li><a href="">Defacto</a></li>
+                    <li><a href="">Tchiba</a></li>
+                    <li><a href="">Network</a></li>
+                    <li><a href="">Kiğılı</a></li>
+                    <li><a href="">Stradivarius</a></li>
+                </ul>
+            </div>
+            <div class="col-4">
+                <ul>
+                    <li><a href="">Penti</a></li>
+                    <li><a href="">Watsons</a></li>
+                    <li><a href="">Columbia</a></li>
+                    <li><a href="">Puma</a></li>
+                    <li><a href="">Apple</a></li>
+                    <li><a href="">Xiaomi</a></li>
+                    <li><a href="">Birkenstock</a></li>
+                    <li><a href="">Adidas</a></li>
+                    <li><a href="">Lacoste</a></li>
+                    <li><a href="">Madame Coco</a></li>
+                    <li><a href="">Defacto</a></li>
+                    <li><a href="">Tchiba</a></li>
+                    <li><a href="">Network</a></li>
+                    <li><a href="">Kiğılı</a></li>
+                    <li><a href="">Stradivarius</a></li>
+                </ul>
+            </div>
+            <div class="col-4">
+                <ul>
+                    <li><a href="">Penti</a></li>
+                    <li><a href="">Watsons</a></li>
+                    <li><a href="">Columbia</a></li>
+                    <li><a href="">Puma</a></li>
+                    <li><a href="">Apple</a></li>
+                    <li><a href="">Xiaomi</a></li>
+                    <li><a href="">Birkenstock</a></li>
+                    <li><a href="">Adidas</a></li>
+                    <li><a href="">Lacoste</a></li>
+                    <li><a href="">Madame Coco</a></li>
+                    <li><a href="">Defacto</a></li>
+                    <li><a href="">Tchiba</a></li>
+                    <li><a href="">Network</a></li>
+                    <li><a href="">Kiğılı</a></li>
+                    <li><a href="">Stradivarius</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="row">
+            <h4>Popüler Sayfalar</h4>
+            <div class="col-4">
+                <ul>
+                    <li><a href="">Penti</a></li>
+                    <li><a href="">Watsons</a></li>
+                    <li><a href="">Columbia</a></li>
+                    <li><a href="">Puma</a></li>
+                    <li><a href="">Apple</a></li>
+                    <li><a href="">Xiaomi</a></li>
+                    <li><a href="">Birkenstock</a></li>
+                    <li><a href="">Adidas</a></li>
+                    <li><a href="">Lacoste</a></li>
+                    <li><a href="">Madame Coco</a></li>
+                    <li><a href="">Defacto</a></li>
+                    <li><a href="">Tchiba</a></li>
+                    <li><a href="">Network</a></li>
+                    <li><a href="">Kiğılı</a></li>
+                    <li><a href="">Stradivarius</a></li>
+                </ul>
+            </div>
+            <div class="col-4">
+                <ul>
+                    <li><a href="">Penti</a></li>
+                    <li><a href="">Watsons</a></li>
+                    <li><a href="">Columbia</a></li>
+                    <li><a href="">Puma</a></li>
+                    <li><a href="">Apple</a></li>
+                    <li><a href="">Xiaomi</a></li>
+                    <li><a href="">Birkenstock</a></li>
+                    <li><a href="">Adidas</a></li>
+                    <li><a href="">Lacoste</a></li>
+                    <li><a href="">Madame Coco</a></li>
+                    <li><a href="">Defacto</a></li>
+                    <li><a href="">Tchiba</a></li>
+                    <li><a href="">Network</a></li>
+                    <li><a href="">Kiğılı</a></li>
+                    <li><a href="">Stradivarius</a></li>
+                </ul>
+            </div>
+            <div class="col-4">
+                <ul>
+                    <li><a href="">Penti</a></li>
+                    <li><a href="">Watsons</a></li>
+                    <li><a href="">Columbia</a></li>
+                    <li><a href="">Puma</a></li>
+                    <li><a href="">Apple</a></li>
+                    <li><a href="">Xiaomi</a></li>
+                    <li><a href="">Birkenstock</a></li>
+                    <li><a href="">Adidas</a></li>
+                    <li><a href="">Lacoste</a></li>
+                    <li><a href="">Madame Coco</a></li>
+                    <li><a href="">Defacto</a></li>
+                    <li><a href="">Tchiba</a></li>
+                    <li><a href="">Network</a></li>
+                    <li><a href="">Kiğılı</a></li>
+                    <li><a href="">Stradivarius</a></li>
+                </ul>
+            </div>
+        </div>
+
+
+
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll('.owl-carousel').forEach(function (carousel) {
+            const itemCount = carousel.querySelectorAll('.card').length;
+
+            $(carousel).owlCarousel({
+                margin: 20,
+                loop: false,
+                nav: itemCount > 4,
+                dots: false,
+                responsive: {
+                    0: { items: 1 },
+                    576: { items: 2 },
+                    768: { items: 3 },
+                    992: { items: 4 },
+                    1200: { items: 5 }
+                }
+            });
+        });
+
+        document.querySelectorAll('.heart-icon').forEach(function (icon) {
+            icon.addEventListener('click', function () {
+                icon.classList.toggle('liked');
+                icon.classList.toggle('fa-solid');
+                icon.classList.toggle('fa-regular');
+            });
+        });
+    });
+
+</script>
