@@ -1,4 +1,6 @@
 ﻿@model ViewModel
+
+
 <style>
     li {
         list-style-type: none;
@@ -51,18 +53,18 @@
             display: none;
         }
     }
-
-    yyyy
 </style>
 
 <div class="featured-boxes featured-boxes-style-2">
     <div class="row">
+        <div class="col-lg-1">
+        </div>
         <div class="col-lg-2">
             <div class="featured-box featured-box-primary featured-box-effect-4">
                 <div class="box-content">
                     <a href="/kategoriler" style="text-decoration: none;">
-                        <i class="icon-featured far fa-heart"></i>
-                        <h4 class="font-weight-normal text-4">Yemek</h4>
+                        <img src="https://cdn.dsmcdn.com/mnresize/75/75/homepage/prod/2024-12-03/ce366206-d014-42c8-a745-c44e1d0de927.png">
+                        <h4 class="font-weight-normal text-2">İyi Fiyatlı Ürünler</h4>
                     </a>
                 </div>
             </div>
@@ -71,8 +73,8 @@
             <div class="featured-box featured-box-primary featured-box-effect-4">
                 <div class="box-content">
                     <a href="/kategoriler" style="text-decoration: none;">
-                        <i class="icon-featured far fa-heart"></i>
-                        <h4 class="font-weight-normal text-4">İyi Fiyatlı Ürünler</h4>
+                        <img src="https://cdn.dsmcdn.com/mnresize/75/75/homepage/prod/2024-12-03/3116e405-80ca-4f51-a999-035c0aee3335.png">
+                        <h4 class="font-weight-normal text-2">Sen De Al!</h4>
                     </a>
                 </div>
             </div>
@@ -81,8 +83,8 @@
             <div class="featured-box featured-box-primary featured-box-effect-4">
                 <div class="box-content">
                     <a href="/kategoriler" style="text-decoration: none;">
-                        <i class="icon-featured far fa-heart"></i>
-                        <h4 class="font-weight-normal text-4">Sen De Al!</h4>
+                        <img src="https://cdn.dsmcdn.com/mnresize/75/75/homepage/prod/2024-12-03/12dc5d02-c3b8-4543-9b97-188dc6ff26f1.png">
+                        <h4 class="font-weight-normal text-2">Avantajlı Ürünler</h4>
                     </a>
                 </div>
             </div>
@@ -91,18 +93,8 @@
             <div class="featured-box featured-box-primary featured-box-effect-4">
                 <div class="box-content">
                     <a href="/kategoriler" style="text-decoration: none;">
-                        <i class="icon-featured far fa-heart"></i>
-                        <h4 class="font-weight-normal text-4">Avantajlı Ürünler</h4>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-2">
-            <div class="featured-box featured-box-primary featured-box-effect-4">
-                <div class="box-content">
-                    <a href="/kategoriler" style="text-decoration: none;">
-                        <i class="icon-featured far fa-heart"></i>
-                        <h4 class="font-weight-normal text-4">İndirim Kuponlarım</h4>
+                        <img src="https://cdn.dsmcdn.com/mnresize/75/75/homepage/prod/2024-12-03/f2fb237a-bfee-48b9-aa80-40675bc7e3fe.png">
+                        <h4 class="font-weight-normal text-2">İndirim Kuponlarım</h4>
                     </a>
 
                 </div>
@@ -112,8 +104,8 @@
             <div class="featured-box featured-box-primary featured-box-effect-4">
                 <div class="box-content">
                     <a href="/kategoriler" style="text-decoration: none;">
-                        <i class="icon-featured far fa-heart"></i>
-                        <h4 class="font-weight-normal text-4">Yeni Gelen Ürünler</h4>
+                        <img src="https://cdn.dsmcdn.com/mnresize/75/75/homepage/prod/2024-12-03/ab8a4bec-6dec-4b95-8141-cd22ca27d684.png">
+                        <h4 class="font-weight-normal text-2">Yeni Gelen Ürünler</h4>
                     </a>
                 </div>
             </div>
@@ -149,12 +141,12 @@
             @foreach (var item in Model.Products!)
             {
                 <div class="card position-relative">
-                    <i class="fa-regular fa-heart heart-icon"></i>
+<i class="heart-icon fa-heart @(item.favorite ? "fa-solid liked" : "fa-regular")" data-id="@item.id"></i>
                     <img class="card-img-top" src="img/@item.img" alt="Card Image">
                     <div class="card-body">
                         <h4 class="card-title mb-1 text-4 font-weight-bold">@item.name</h4>
                         <p class="card-text mb-2 pb-1">@item.description</p>
-                        <p class="card-text mb-2 pb-1">@item.price TL</p>
+                        <p class="card-text mb-2 pb-1">@item.price.ToString("N2") TL</p>
                         <a href="#" class="read-more text-color-primary font-weight-semibold text-2">Read More <i
                                 class="fas fa-angle-right position-relative top-1 ms-1"></i></a>
                     </div>
@@ -175,12 +167,13 @@
             @foreach (var item in Model.Products!)
             {
                 <div class="card position-relative">
-                    <i class="fa-regular fa-heart heart-icon"></i>
+<!-- Örnek Razor kodu -->
+<i class="heart-icon fa-heart @(item.favorite ? "fa-solid liked" : "fa-regular")" data-id="@item.id"></i>
                     <img class="card-img-top" src="img/@item.img" alt="Card Image">
                     <div class="card-body">
                         <h4 class="card-title mb-1 text-4 font-weight-bold">@item.name</h4>
                         <p class="card-text mb-2 pb-1">@item.description</p>
-                        <p class="card-text mb-2 pb-1">@item.price TL</p>
+                        <p class="card-text mb-2 pb-1">@item.price.ToString("N2") TL</p>
                         <a href="#" class="read-more text-color-primary font-weight-semibold text-2">Read More <i
                                 class="fas fa-angle-right position-relative top-1 ms-1"></i></a>
                     </div>
@@ -342,14 +335,9 @@
                 }
             });
         });
-
-        document.querySelectorAll('.heart-icon').forEach(function (icon) {
-            icon.addEventListener('click', function () {
-                icon.classList.toggle('liked');
-                icon.classList.toggle('fa-solid');
-                icon.classList.toggle('fa-regular');
-            });
-        });
     });
-
+    
 </script>
+
+<script src="~/js/myScript/favorite.js"></script>
+

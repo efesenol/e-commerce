@@ -33,6 +33,20 @@ public class HomeController : Controller
         return View(viewModel);
     }
 
+    [HttpPost]
+public IActionResult ToggleFavorite(int id)
+{
+    var product = _context.Products.FirstOrDefault(p => p.id == id);
+    if (product == null)
+        return NotFound();
+
+    product.favorite = !product.favorite;
+    _context.SaveChanges();
+
+    return Json(new { success = true, favorite = product.favorite });
+}
+
+
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
     {

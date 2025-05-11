@@ -18,7 +18,8 @@ out/
 ## ASP.NET Core gizli yapılandırmalar
 appsettings.Development.json
 appsettings.Local.json
-secrets.json
+secrets.json^
+appsettings.json
 
 ## Paket klasörleri
 *.nupkg

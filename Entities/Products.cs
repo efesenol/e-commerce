@@ -12,8 +12,9 @@ namespace e_commerce.Entities
         public string? description { get; set; }
         public string? img { get; set; }
         public int quantity { get; set; }
-        public string? price { get; set; }
+        public double price { get; set; }
         public int userId { get; set; }
+        public bool favorite { get; set; }
         public bool basket { get; set; }
         public bool showcase { get; set; }
         public bool active { get; set; }

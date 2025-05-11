@@ -14,11 +14,11 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">	
 
-		<title>About Us | Porto - Multipurpose Website Template</title>	
+		<title>Efe Şenol - E-Commerce</title>	
 
-		<meta name="keywords" content="WebSite Template" />
-		<meta name="description" content="Porto - Multipurpose Website Template">
-		<meta name="author" content="okler.net">
+		<meta name="keywords" content="e-commerce" />
+		<meta name="description" content="e-commerce">
+		<meta name="author" content="e-commerce">
 
 		<!-- Favicon -->
 		<link rel="shortcut icon" href="~/img/favicon.ico" type="image/x-icon" />
@@ -55,6 +55,7 @@
 		<script src="~/vendor/modernizr/modernizr.min.js"></script>
 </head>
 <body>
+	@model ViewModel
     <div class="notice-top-bar bg-primary" data-sticky-start-at="180">
 				<button class="hamburguer-btn hamburguer-btn-light notice-top-bar-close m-0 active" data-set-active="false">
 					<span class="close">
@@ -77,8 +78,8 @@
 							<div class="header-row justify-content-between">
 								<div class="header-column col-auto px-0">
 									<div class="header-row">
-										<p class="font-weight-semibold text-1 mb-0 d-none d-sm-block d-md-none">FREE SHIPPING ORDERS $99+</p>
-										<p class="font-weight-semibold text-1 mb-0 d-none d-md-block">FREE RETURNS, STANDARD SHIPPING ORDERS $99+</p>
+										<p class="font-weight-semibold text-1 mb-0 d-none d-sm-block d-md-none">200TL ve ÜZERİ SIPARIŞLERDE ÜCRETSİZ KARGO</p>
+										<p class="font-weight-semibold text-1 mb-0 d-none d-md-block">ÜCRETSIZ İADE, 200TL ve ÜZERİ SIPARIŞLERDE ÜCRETSİZ KARGO</p>
 									</div>
 								</div>
 								<div class="header-column justify-content-end col-auto px-0">
@@ -91,33 +92,25 @@
 														<i class="fas fa-angle-down"></i>
 													</a>
 													<div class="dropdown-menu" aria-labelledby="dropdownMobileMore">
-														<a class="dropdown-item" href="#">About</a>
-														<a class="dropdown-item" href="#">Our Stores</a>
-														<a class="dropdown-item" href="#">Blog</a>
-														<a class="dropdown-item" href="#">Contact</a>
-														<a class="dropdown-item" href="#">Help & FAQs</a>
-														<a class="dropdown-item" href="#">Track Order</a>
+														<a class="dropdown-item" href="#">İndirim Kuponlarım</a>
+														<a class="dropdown-item" href="#">Efe Şenol Sitesinde Satış Yap</a>
+														<a class="dropdown-item" href="#">Hakkımızda</a>
+														<a class="dropdown-item" href="#">Yardım & Destek</a>
 													</div>
 												</li>
 												<li class="nav-item d-none d-lg-inline-block">
-													<a href="#" class="text-decoration-none text-color-default text-color-hover-primary">About</a>
+													<a href="#" class="text-decoration-none text-color-default text-color-hover-primary">İndirim Kuponlarım</a>
 												</li>
 												<li class="nav-item d-none d-lg-inline-block">
-													<a href="#" class="text-decoration-none text-color-default text-color-hover-primary">Our Stores</a>
+													<a href="#" class="text-decoration-none text-color-default text-color-hover-primary">Satış Yap</a>
 												</li>
 												<li class="nav-item d-none d-lg-inline-block">
-													<a href="#" class="text-decoration-none text-color-default text-color-hover-primary">Blog</a>
+													<a href="#" class="text-decoration-none text-color-default text-color-hover-primary">Hakkımızda</a>
 												</li>
 												<li class="nav-item d-none d-lg-inline-block">
-													<a href="#" class="text-decoration-none text-color-default text-color-hover-primary">Contact</a>
+													<a href="#" class="text-decoration-none text-color-default text-color-hover-primary">Yardım & Destek</a>
 												</li>
-												<li class="nav-item d-none d-xl-inline-block">
-													<a href="#" class="text-decoration-none text-color-default text-color-hover-primary">Help & FAQs</a>
-												</li>
-												<li class="nav-item d-none d-xl-inline-block">
-													<a href="#" class="text-decoration-none text-color-default text-color-hover-primary">Track Order</a>
-												</li>
-												<li class="nav-item dropdown nav-item-left-border">
+												@* <li class="nav-item dropdown nav-item-left-border">
 													<a class="nav-link text-color-default text-color-hover-primary" href="#" role="button" id="dropdownCurrency" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 														USD
 														<i class="fas fa-angle-down"></i>
@@ -126,8 +119,8 @@
 														<a class="dropdown-item" href="#">EUR</a>
 														<a class="dropdown-item" href="#">USD</a>
 													</div>
-												</li>
-												<li class="nav-item dropdown nav-item-right-border">
+												</li> *@
+												@* <li class="nav-item dropdown nav-item-right-border">
 													<a class="nav-link text-color-default text-color-hover-primary" href="#" role="button" id="dropdownLanguage" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 														ENG
 														<i class="fas fa-angle-down"></i>
@@ -137,7 +130,7 @@
 														<a class="dropdown-item" href="#">FRA</a>
 														<a class="dropdown-item" href="#">ENG</a>
 													</div>
-												</li>
+												</li> *@
 											</ul>
 											<ul class="header-social-icons social-icons social-icons-clean social-icons-icon-gray">
 												<li class="social-icons-facebook">
@@ -147,7 +140,7 @@
 													<a href="http://www.twitter.com/" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
 												</li>
 												<li class="social-icons-linkedin">
-													<a href="http://www.linkedin.com/" target="_blank" title="Linkedin"><i class="fab fa-linkedin-in"></i></a>
+													<a href="https://www.linkedin.com/in/efe%C5%9Fenol/" target="_blank" title="Linkedin"><i class="fab fa-linkedin-in"></i></a>
 												</li>
 											</ul>
 										</nav>
@@ -175,7 +168,7 @@
 													<div class="search-form-wrapper input-group">
 														<input class="form-control text-1" id="headerSearch" name="q" type="search" value="" placeholder="Search...">
 														<div class="search-form-select-wrapper">
-															<div class="custom-select-1">
+															@* <div class="custom-select-1">
 																<select name="category" class="form-control form-select">
 																	<option value="all" selected>All Categories</option>
 																	<option value="fashion">Fashion</option>
@@ -184,7 +177,7 @@
 																	<option value="motors">Motors</option>
 																	<option value="features">Features</option>
 																</select>
-															</div>
+															</div> *@
 															<button class="btn" type="submit">
 																<i class="icons icon-magnifier header-nav-top-icon text-color-dark"></i>
 															</button>
@@ -194,7 +187,7 @@
 											</form>
 										</div>
 									</div>
-									<ul class="header-extra-info col-lg-3 col-xl-2 ps-2 ps-xl-0 ms-lg-3 d-none d-lg-block">
+									@* <ul class="header-extra-info col-lg-3 col-xl-2 ps-2 ps-xl-0 ms-lg-3 d-none d-lg-block">
 										<li class="d-none d-sm-inline-flex ms-0">
 											<div class="header-extra-info-icon ms-lg-4">
 												<i class="icons icon-phone text-3 text-color-dark position-relative top-1"></i>
@@ -204,7 +197,7 @@
 												<strong class="text-4"><a href="tel:+1234567890" class="text-color-hover-primary text-decoration-none">+123 4567 890</a></strong>
 											</div>
 										</li>
-									</ul>
+									</ul> *@
 									<div class="d-flex col-auto col-lg-2 pe-0 ps-0 ps-xl-3">
 										<ul class="header-extra-info">
 											<li class="ms-0 ms-xl-4">
@@ -227,27 +220,31 @@
 												<a href="#" class="header-nav-features-toggle">
 													<img src="~/img/icons/icon-cart-big.svg" height="30" alt="" class="header-nav-top-icon-img">
 													<span class="cart-info">
-														<span class="cart-qty">1</span>
+														<span class="cart-qty">@Model.Products?.Count()</span>
 													</span>
 												</a>
 												<div class="header-nav-features-dropdown" id="headerTopCartDropdown">
 													<ol class="mini-products-list">
 														<li class="item">
+															@foreach(var item in Model.Products!){
 															<a href="#" title="Camera X1000" class="product-image"><img src="~/img/products/product-1.jpg" alt="Camera X1000"></a>
 															<div class="product-details">
 																<p class="product-name">
-																	<a href="#">Camera X1000 </a>
+																	<a href="#">@item.name </a>
 																</p>
 																<p class="qty-price">
-																	 1X <span class="price">$890</span>
+																	 1X <span class="price">@item.price TL</span>
 																</p>
 																<a href="#" title="Remove This Item" class="btn-remove"><i class="fas fa-times"></i></a>
 															</div>
+															}
 														</li>
 													</ol>
 													<div class="totals">
 														<span class="label">Total:</span>
-														<span class="price-total"><span class="price">$890</span></span>
+														<span class="price-total">
+														<span class="price">$@((Model.Products?.Sum(p => p.price) ?? 0).ToString("N2"))</span>
+														</span>
 													</div>
 													<div class="actions">
 														<a class="btn btn-dark" href="#">View Cart</a>
@@ -794,231 +791,19 @@
 														</li>
 														<li class="dropdown">
 															<a class="dropdown-item dropdown-toggle" href="#">
-																Pages
+																Kadın
 															</a>
-															<ul class="dropdown-menu">
-																<li class="dropdown-submenu">
-																	<a class="dropdown-item" href="#">Contact Us</a>
-																	<ul class="dropdown-menu">
-																		<li><a class="dropdown-item" href="contact-us-advanced.php">Contact Us - Advanced</a></li>
-																		<li><a class="dropdown-item" href="contact-us.html">Contact Us - Basic</a></li>
-																		<li><a class="dropdown-item" href="contact-us-recaptcha.html">Contact Us - Recaptcha</a></li>
-																	</ul>
-																</li>
-																<li class="dropdown-submenu">
-																	<a class="dropdown-item" href="#">About Us</a>
-																	<ul class="dropdown-menu">
-																		<li><a class="dropdown-item" href="about-us-advanced.html">About Us - Advanced</a></li>
-																		<li><a class="dropdown-item" href="about-us.html">About Us - Basic</a></li>
-																		<li><a class="dropdown-item" href="about-me.html">About Me</a></li>
-																	</ul>
-																</li>
-																<li class="dropdown-submenu">
-																	<a class="dropdown-item" href="#">Layouts</a>
-																	<ul class="dropdown-menu">
-																		<li><a class="dropdown-item" href="page-full-width.html">Full Width</a></li>
-																		<li><a class="dropdown-item" href="page-left-sidebar.html">Left Sidebar</a></li>
-																		<li><a class="dropdown-item" href="page-right-sidebar.html">Right Sidebar</a></li>
-																		<li><a class="dropdown-item" href="page-left-and-right-sidebars.html">Left and Right Sidebars</a></li>
-																		<li><a class="dropdown-item" href="page-sticky-sidebar.html">Sticky Sidebar</a></li>
-																		<li><a class="dropdown-item" href="page-secondary-navbar.html">Secondary Navbar</a></li>
-																	</ul>
-																</li>
-																<li class="dropdown-submenu">
-																	<a class="dropdown-item" href="#">Extra</a>
-																	<ul class="dropdown-menu">
-																		<li><a class="dropdown-item" href="page-404.html">404 Error</a></li>
-																		<li><a class="dropdown-item" href="page-500.html">500 Error</a></li>
-																		<li><a class="dropdown-item" href="page-coming-soon.html">Coming Soon</a></li>
-																		<li><a class="dropdown-item" href="page-maintenance-mode.html">Maintenance Mode</a></li>
-																		<li><a class="dropdown-item" href="page-search-results.html">Search Results</a></li>
-																		<li><a class="dropdown-item" href="sitemap.html">Sitemap</a></li>
-																	</ul>
-																</li>
-																<li class="dropdown-submenu">
-																	<a class="dropdown-item" href="#">Team</a>
-																	<ul class="dropdown-menu">
-																		<li><a class="dropdown-item" href="page-team-advanced.html">Team - Advanced</a></li>
-																		<li><a class="dropdown-item" href="page-team.html">Team - Basic</a></li>
-																	</ul>
-																</li>
-																<li class="dropdown-submenu">
-																	<a class="dropdown-item" href="#">Services</a>
-																	<ul class="dropdown-menu">
-																		<li><a class="dropdown-item" href="page-services.html">Services - Version 1</a></li>
-																		<li><a class="dropdown-item" href="page-services-2.html">Services - Version 2</a></li>
-																		<li><a class="dropdown-item" href="page-services-3.html">Services - Version 3</a></li>
-																	</ul>
-																</li>
-																<li><a class="dropdown-item" href="page-careers.html">Careers</a></li>
-																<li><a class="dropdown-item" href="page-faq.html">FAQ</a></li>
-																<li><a class="dropdown-item" href="page-login.html">Login / Register</a></li>
-																<li><a class="dropdown-item" href="page-user-profile.html">User Profile</a></li>
-															</ul>
+															
 														</li>
 														<li class="dropdown">
 															<a class="dropdown-item dropdown-toggle" href="#">
-																Portfolio
+																Erkek
 															</a>
-															<ul class="dropdown-menu">
-																<li class="dropdown-submenu">
-																	<a class="dropdown-item" href="#">Single Project</a>
-																	<ul class="dropdown-menu">
-																		<li><a class="dropdown-item" href="portfolio-single-wide-slider.html">Wide Slider</a></li>
-																		<li><a class="dropdown-item" href="portfolio-single-small-slider.html">Small Slider</a></li>
-																		<li><a class="dropdown-item" href="portfolio-single-full-width-slider.html">Full Width Slider</a></li>
-																		<li><a class="dropdown-item" href="portfolio-single-gallery.html">Gallery</a></li>
-																		<li><a class="dropdown-item" href="portfolio-single-carousel.html">Carousel</a></li>
-																		<li><a class="dropdown-item" href="portfolio-single-medias.html">Medias</a></li>
-																		<li><a class="dropdown-item" href="portfolio-single-full-width-video.html">Full Width Video</a></li>
-																		<li><a class="dropdown-item" href="portfolio-single-masonry-images.html">Masonry Images</a></li>
-																		<li><a class="dropdown-item" href="portfolio-single-left-sidebar.html">Left Sidebar</a></li>
-																		<li><a class="dropdown-item" href="portfolio-single-right-sidebar.html">Right Sidebar</a></li>
-																		<li><a class="dropdown-item" href="portfolio-single-left-and-right-sidebars.html">Left and Right Sidebars</a></li>
-																		<li><a class="dropdown-item" href="portfolio-single-sticky-sidebar.html">Sticky Sidebar</a></li>
-																		<li><a class="dropdown-item" href="portfolio-single-extended.html">Extended</a></li>
-																	</ul>
-																</li>
-																<li class="dropdown-submenu">
-																	<a class="dropdown-item" href="#">Grid Layouts</a>
-																	<ul class="dropdown-menu">
-																		<li><a class="dropdown-item" href="portfolio-grid-1-column.html">1 Column</a></li>
-																		<li><a class="dropdown-item" href="portfolio-grid-2-columns.html">2 Columns</a></li>
-																		<li><a class="dropdown-item" href="portfolio-grid-3-columns.html">3 Columns</a></li>
-																		<li><a class="dropdown-item" href="portfolio-grid-4-columns.html">4 Columns</a></li>
-																		<li><a class="dropdown-item" href="portfolio-grid-5-columns.html">5 Columns</a></li>
-																		<li><a class="dropdown-item" href="portfolio-grid-6-columns.html">6 Columns</a></li>
-																		<li><a class="dropdown-item" href="portfolio-grid-no-margins.html">No Margins</a></li>
-																		<li><a class="dropdown-item" href="portfolio-grid-full-width.html">Full Width</a></li>
-																		<li><a class="dropdown-item" href="portfolio-grid-full-width-no-margins.html">Full Width No Margins</a></li>
-																		<li><a class="dropdown-item" href="portfolio-grid-1-column-title-and-description.html">Title and Description</a></li>
-																	</ul>
-																</li>
-																<li class="dropdown-submenu">
-																	<a class="dropdown-item" href="#">Masonry Layouts</a>
-																	<ul class="dropdown-menu">
-																		<li><a class="dropdown-item" href="portfolio-masonry-2-columns.html">2 Columns</a></li>
-																		<li><a class="dropdown-item" href="portfolio-masonry-3-columns.html">3 Columns</a></li>
-																		<li><a class="dropdown-item" href="portfolio-masonry-4-columns.html">4 Columns</a></li>
-																		<li><a class="dropdown-item" href="portfolio-masonry-5-columns.html">5 Columns</a></li>
-																		<li><a class="dropdown-item" href="portfolio-masonry-6-columns.html">6 Columns</a></li>
-																		<li><a class="dropdown-item" href="portfolio-masonry-no-margins.html">No Margins</a></li>
-																		<li><a class="dropdown-item" href="portfolio-masonry-full-width.html">Full Width</a></li>
-																	</ul>
-																</li>
-																<li class="dropdown-submenu">
-																	<a class="dropdown-item" href="#">Sidebar Layouts</a>
-																	<ul class="dropdown-menu">
-																		<li><a class="dropdown-item" href="portfolio-sidebar-left.html">Left Sidebar</a></li>
-																		<li><a class="dropdown-item" href="portfolio-sidebar-right.html">Right Sidebar</a></li>
-																		<li><a class="dropdown-item" href="portfolio-sidebar-left-and-right.html">Left and Right Sidebars</a></li>
-																		<li><a class="dropdown-item" href="portfolio-sidebar-sticky.html">Sticky Sidebar</a></li>
-																	</ul>
-																</li>
-																<li class="dropdown-submenu">
-																	<a class="dropdown-item" href="#">Ajax</a>
-																	<ul class="dropdown-menu">
-																		<li><a class="dropdown-item" href="portfolio-ajax-page.html">Ajax on Page</a></li>
-																		<li><a class="dropdown-item" href="portfolio-ajax-modal.html">Ajax on Modal</a></li>
-																	</ul>
-																</li>
-																<li class="dropdown-submenu">
-																	<a class="dropdown-item" href="#">Extra</a>
-																	<ul class="dropdown-menu">
-																		<li><a class="dropdown-item" href="portfolio-extra-timeline.html">Timeline</a></li>
-																		<li><a class="dropdown-item" href="portfolio-extra-lightbox.html">Lightbox</a></li>
-																		<li><a class="dropdown-item" href="portfolio-extra-load-more.html">Load More</a></li>
-																		<li><a class="dropdown-item" href="portfolio-extra-infinite-scroll.html">Infinite Scroll</a></li>
-																		<li><a class="dropdown-item" href="portfolio-extra-lazy-load-masonry.html">Lazy Load Masonry</a></li>
-																		<li><a class="dropdown-item" href="portfolio-extra-pagination.html">Pagination</a></li>
-																		<li><a class="dropdown-item" href="portfolio-extra-combination-filters.html">Combination Filters</a></li>
-																	</ul>
-																</li>
-															</ul>
+															
 														</li>
+														
 														<li class="dropdown">
-															<a class="dropdown-item dropdown-toggle" href="#">
-																Blog
-															</a>
-															<ul class="dropdown-menu">
-																<li class="dropdown-submenu">
-																	<a class="dropdown-item" href="#">Large Image</a>
-																	<ul class="dropdown-menu">
-																		<li><a class="dropdown-item" href="blog-large-image-full-width.html">Full Width</a></li>
-																		<li><a class="dropdown-item" href="blog-large-image-sidebar-left.html">Left Sidebar</a></li>
-																		<li><a class="dropdown-item" href="blog-large-image-sidebar-right.html">Right Sidebar </a></li>
-																		<li><a class="dropdown-item" href="blog-large-image-sidebar-left-and-right.html">Left and Right Sidebar</a></li>
-																	</ul>
-																</li>
-																<li class="dropdown-submenu">
-																	<a class="dropdown-item" href="#">Medium Image</a>
-																	<ul class="dropdown-menu">
-																		<li><a class="dropdown-item" href="blog-medium-image-sidebar-left.html">Left Sidebar</a></li>
-																		<li><a class="dropdown-item" href="blog-medium-image-sidebar-right.html">Right Sidebar </a></li>
-																	</ul>
-																</li>
-																<li class="dropdown-submenu">
-																	<a class="dropdown-item" href="#">Grid</a>
-																	<ul class="dropdown-menu">
-																		<li><a class="dropdown-item" href="blog-grid-4-columns.html">4 Columns</a></li>
-																		<li><a class="dropdown-item" href="blog-grid-3-columns.html">3 Columns</a></li>
-																		<li><a class="dropdown-item" href="blog-grid-full-width.html">Full Width</a></li>
-																		<li><a class="dropdown-item" href="blog-grid-no-margins.html">No Margins</a></li>
-																		<li><a class="dropdown-item" href="blog-grid-no-margins-full-width.html">No Margins Full Width</a></li>
-																		<li><a class="dropdown-item" href="blog-grid-sidebar-left.html">Left Sidebar</a></li>
-																		<li><a class="dropdown-item" href="blog-grid-sidebar-right.html">Right Sidebar </a></li>
-																		<li><a class="dropdown-item" href="blog-grid-sidebar-left-and-right.html">Left and Right Sidebar</a></li>
-																	</ul>
-																</li>
-																<li class="dropdown-submenu">
-																	<a class="dropdown-item" href="#">Masonry</a>
-																	<ul class="dropdown-menu">
-																		<li><a class="dropdown-item" href="blog-masonry-4-columns.html">4 Columns</a></li>
-																		<li><a class="dropdown-item" href="blog-masonry-3-columns.html">3 Columns</a></li>
-																		<li><a class="dropdown-item" href="blog-masonry-full-width.html">Full Width</a></li>
-																		<li><a class="dropdown-item" href="blog-masonry-no-margins.html">No Margins</a></li>
-																		<li><a class="dropdown-item" href="blog-masonry-no-margins-full-width.html">No Margins Full Width</a></li>
-																		<li><a class="dropdown-item" href="blog-masonry-sidebar-left.html">Left Sidebar</a></li>
-																		<li><a class="dropdown-item" href="blog-masonry-sidebar-right.html">Right Sidebar </a></li>
-																	</ul>
-																</li>
-																<li class="dropdown-submenu">
-																	<a class="dropdown-item" href="#">Timeline</a>
-																	<ul class="dropdown-menu">
-																		<li><a class="dropdown-item" href="blog-timeline.html">Full Width</a></li>
-																		<li><a class="dropdown-item" href="blog-timeline-sidebar-left.html">Left Sidebar</a></li>
-																		<li><a class="dropdown-item" href="blog-timeline-sidebar-right.html">Right Sidebar </a></li>
-																	</ul>
-																</li>
-																<li class="dropdown-submenu">
-																	<a class="dropdown-item" href="#">Single Post</a>
-																	<ul class="dropdown-menu">
-																		<li><a class="dropdown-item" href="blog-post.html">Full Width</a></li>
-																		<li><a class="dropdown-item" href="blog-post-slider-gallery.html">Slider Gallery</a></li>
-																		<li><a class="dropdown-item" href="blog-post-image-gallery.html">Image Gallery</a></li>
-																		<li><a class="dropdown-item" href="blog-post-embedded-video.html">Embedded Video</a></li>
-																		<li><a class="dropdown-item" href="blog-post-html5-video.html">HTML5 Video</a></li>
-																		<li><a class="dropdown-item" href="blog-post-blockquote.html">Blockquote</a></li>
-																		<li><a class="dropdown-item" href="blog-post-link.html">Link</a></li>
-																		<li><a class="dropdown-item" href="blog-post-embedded-audio.html">Embedded Audio</a></li>
-																		<li><a class="dropdown-item" href="blog-post-small-image.html">Small Image</a></li>
-																		<li><a class="dropdown-item" href="blog-post-sidebar-left.html">Left Sidebar</a></li>
-																		<li><a class="dropdown-item" href="blog-post-sidebar-right.html">Right Sidebar </a></li>
-																		<li><a class="dropdown-item" href="blog-post-sidebar-left-and-right.html">Left and Right Sidebar</a></li>
-																	</ul>
-																</li>
-																<li class="dropdown-submenu">
-																	<a class="dropdown-item" href="#">Post Comments</a>
-																	<ul class="dropdown-menu">
-																		<li><a class="dropdown-item" href="blog-post.html#comments">Default</a></li>
-																		<li><a class="dropdown-item" href="blog-post-comments-facebook.html#comments">Facebook Comments</a></li>
-																		<li><a class="dropdown-item" href="blog-post-comments-disqus.html#comments">Disqus Comments</a></li>
-																	</ul>
-																</li>
-															</ul>
-														</li>
-														<li class="dropdown">
-															<a class="dropdown-item dropdown-toggle active" href="#">
+															<a class="dropdown-item dropdown-toggle active" href="/kategoriler">
 																Shop
 															</a>
 															<ul class="dropdown-menu">

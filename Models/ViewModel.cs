@@ -10,7 +10,7 @@ namespace e_commerce.Models
     {
         public List<Users>? Users { get; set; } 
         public List<Products>? Products { get; set; } 
-         public List<Menus>? Menus { get; set; } 
+        public List<Menus>? Menus { get; set; } 
 
     }
 }
