@@ -1,4 +1,4 @@
-﻿@Model ViewModel
+﻿
 
 <!DOCTYPE html>
 <html lang="en">
@@ -17,14 +17,9 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">	
 
 		<title>Efe Şenol - E-Commerce</title>	
-
 		<meta name="keywords" content="e-commerce" />
-    using e_commerce.Entities;
-    using e_commerce.Entities;
 		<meta name="description" content="e-commerce">
 		<meta name="author" content="e-commerce">
-    using e_commerce.Entities;
-
 		<!-- Favicon -->
 		<link rel="shortcut icon" href="~/img/favicon.ico" type="image/x-icon" />
 		<link rel="apple-touch-icon" href="~/img/apple-touch-icon.png">
@@ -230,20 +225,23 @@
 												</a>
 												<div class="header-nav-features-dropdown" id="headerTopCartDropdown">
 													<ol class="mini-products-list">
-														<li class="item">
-															@foreach(var item in Model.Products!){
-															<a href="#" title="Camera X1000" class="product-image"><img src="~/img/products/product-1.jpg" alt="Camera X1000"></a>
-															<div class="product-details">
-																<p class="product-name">
-																	<a href="#">@item.name </a>
-																</p>
-																<p class="qty-price">
-																	 1X <span class="price">@item.price TL</span>
-																</p>
-																<a href="#" title="Remove This Item" class="btn-remove"><i class="fas fa-times"></i></a>
-															</div>
-															}
-														</li>
+														@foreach (var item in Model.Products!)
+														{
+															<li class="item">
+																<a href="#" title="@item.name" class="product-image">
+																	<img src="~/img/products/product-1.jpg" alt="@item.name">
+																</a>
+																<div class="product-details">
+																	<p class="product-name">
+																		<a href="#">@item.name</a>
+																	</p>
+																	<p class="qty-price">
+																		1X <span class="price">@item.price TL</span>
+																	</p>
+																	<a href="#" title="Remove This Item" class="btn-remove"><i class="fas fa-times"></i></a>
+																</div>
+															</li>
+														} 
 													</ol>
 													<div class="totals">
 														<span class="label">Total:</span>
