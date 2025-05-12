@@ -34,22 +34,25 @@ public class HomeController : Controller
     }
 
     [HttpPost]
-public IActionResult ToggleFavorite(int id)
-{
-    var product = _context.Products.FirstOrDefault(p => p.id == id);
-    if (product == null)
-        return NotFound();
-
-    product.favorite = !product.favorite;
-    _context.SaveChanges();
-
-    return Json(new { success = true, favorite = product.favorite });
-}
-
-
-    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-    public IActionResult Error()
+    public IActionResult ToggleFavorite(int id)
     {
-        return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        var product = _context.Products.FirstOrDefault(p => p.id == id);
+        if (product == null)
+            return NotFound();
+
+        product.favorite = !product.favorite;
+        _context.SaveChanges();
+
+        return Json(new { success = true, favorite = product.favorite });
     }
+    [Route("farvoriler")]
+    public IActionResult Favorite()
+    {
+        var viewModel = new ViewModel();
+        viewModel.Products = _context.Products.Where(x => x.active == true && x.favorite == true).ToList();
+        return View(viewModel);
+    }
+
+
+
 }

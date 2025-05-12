@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@Model ViewModel
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -17,8 +19,11 @@
 		<title>Efe Şenol - E-Commerce</title>	
 
 		<meta name="keywords" content="e-commerce" />
+    using e_commerce.Entities;
+    using e_commerce.Entities;
 		<meta name="description" content="e-commerce">
 		<meta name="author" content="e-commerce">
+    using e_commerce.Entities;
 
 		<!-- Favicon -->
 		<link rel="shortcut icon" href="~/img/favicon.ico" type="image/x-icon" />
@@ -93,7 +98,7 @@
 													</a>
 													<div class="dropdown-menu" aria-labelledby="dropdownMobileMore">
 														<a class="dropdown-item" href="#">İndirim Kuponlarım</a>
-														<a class="dropdown-item" href="#">Efe Şenol Sitesinde Satış Yap</a>
+														<a class="dropdown-item" href="#">Satış Yap</a>
 														<a class="dropdown-item" href="#">Hakkımızda</a>
 														<a class="dropdown-item" href="#">Yardım & Destek</a>
 													</div>
@@ -209,7 +214,7 @@
 											</li>
 											<li class="me-2 ms-3">
 												<div class="header-extra-info-icon">
-													<a href="#" class="text-decoration-none text-color-dark text-color-hover-primary text-2">
+													<a href="/farvoriler" class="text-decoration-none text-color-dark text-color-hover-primary text-2">
 														<i class="icons icon-heart"></i>
 													</a>
 												</div>
