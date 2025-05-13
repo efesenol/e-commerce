@@ -1,5 +1,6 @@
 ﻿@model ViewModel
 
+
 <div role="main" class="main shop pt-4">
 
     <div class="container">
@@ -156,31 +157,35 @@
                 <div class="masonry-loader masonry-loader-showing">
                     <div class="row products product-thumb-info-list" data-plugin-masonry
                         data-plugin-options="{'layoutMode': 'fitRows'}">
-                        @foreach (var item in Model.Products!)
-                        {
-                            <div class="col-sm-6 col-lg-4">
-                                <div class="product mb-0">
-                                    <div class="product-thumb-info border-0 mb-3">
+                       @foreach (var item in Model.Products!)
+{
+    <div class="col-sm-6 col-lg-4">
+        <div class="product mb-0">
+            <div class="product-thumb-info border-0 mb-3">
 
-                                        <div class="product-thumb-info-badges-wrapper">
-                                            <span class="badge badge-ecommerce badge-success">NEW</span>
-                                            <span class="badge badge-ecommerce badge-danger">27% OFF</span>
+                <div class="product-thumb-info-badges-wrapper">
+                    @if (item.discount == true && item.price > 0 && item.discountPrice < item.price)
+                    {
+                        var discountPercent = Math.Round((item.price - item.discountPrice) / item.price * 100, 0);
+                        <span class="badge badge-ecommerce badge-danger">@discountPercent% OFF</span>
+                    }
 
+                    <span class="badge badge-ecommerce badge-success">NEW</span>
+                </div>
 
-                                        </div>
 
                                         <div class="addtocart-btn-wrapper">
-                                            <a href="shop-cart.html" class="text-decoration-none addtocart-btn"
+                                            <a asp-action="Details" asp-route-id="@item.id" class="text-decoration-none addtocart-btn"
                                                 title="Add to Cart">
                                                 <i class="icons icon-bag"></i>
                                             </a>
                                         </div>
 
-                                        <a href="ajax/shop-product-quick-view.html"
+                                        <a asp-action="Details" asp-route-id="@item.id"
                                             class="quick-view text-uppercase font-weight-semibold text-2">
                                             QUICK VIEW
                                         </a>
-                                        <a href="shop-product-sidebar-left.html">
+                                        <a asp-action="Details" asp-route-id="@item.id">
                                             <div class="product-thumb-info-image">
                                                 <img alt="" class="img-fluid" src="img/products/product-grey-1.jpg">
 
@@ -202,14 +207,14 @@
                                         <a href="#"
                                             class="text-decoration-none text-color-default text-color-hover-dark text-4"><i
                                                 class="far fa-heart"></i></a>
-                                    </div>
+                                         </div>
                                     <div title="Rated 5 out of 5">
                                         <input type="text" class="d-none" value="5" title="" data-plugin-star-rating
                                             data-plugin-options="{'displayOnly': true, 'color': 'default', 'size':'xs'}">
                                     </div>
                                     <p class="price text-5 mb-3">
-                                        <span class="sale text-color-dark font-weight-semi-bold">@item.price</span>
-                                        <span class="amount">$69,00</span>
+                                        <span class="sale text-color-dark font-weight-semi-bold">@item.discountPrice.ToString("N2") ₺ </span>
+                                        <span class="amount">@item.price.ToString("N2") ₺</span>
                                     </p>
                                 </div>
                             </div>

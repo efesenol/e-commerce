@@ -263,6 +263,7 @@
 							<div class="masonry-loader masonry-loader-showing">
 								<div class="products product-thumb-info-list" data-plugin-masonry data-plugin-options="{'layoutMode': 'fitRows'}">
                                     @foreach(var item in Model.Products!){
+										@if(item.favorite == true){
 									<div class="row align-items-center">
 										<div class="col-sm-5 mb-4 mb-sm-0">
 											<div class="product mb-0">
@@ -274,17 +275,18 @@
 													</div>
 
 													<div class="addtocart-btn-wrapper">
+														
 														<a href="shop-cart.html" class="text-decoration-none addtocart-btn" title="Sepete Ekle">
 															<i class="icons icon-bag"></i>
 														</a>
 													</div>
 
-													<a href="ajax/shop-product-quick-view.html" class="quick-view text-uppercase font-weight-semibold text-2">
-														QUICK VIEW
+													<a asp-action="Details" asp-route-id="@item.id" class="quick-view text-uppercase font-weight-semibold text-2">
+														Detaylayları Görüntüle
 													</a>
-													<a href="shop-product-sidebar-left.html">
+													<a asp-action="Details" asp-route-id="@item.id">
 														<div class="product-thumb-info-image product-thumb-info-image-effect">
-															<img alt="" class="img-fluid" src="img/products/product-grey-1.jpg">
+															<img alt="" class="img-fluid" src="img/@item.img">
 
 																<img alt="" class="img-fluid" src="img/@item.img">
 
@@ -332,6 +334,7 @@
 										</div>
 									</div>
                                     }
+									}
 
 									
 

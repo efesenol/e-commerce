@@ -78,8 +78,8 @@
 							<div class="header-row justify-content-between">
 								<div class="header-column col-auto px-0">
 									<div class="header-row">
-										<p class="font-weight-semibold text-1 mb-0 d-none d-sm-block d-md-none">200TL ve ÜZERİ SIPARIŞLERDE ÜCRETSİZ KARGO</p>
-										<p class="font-weight-semibold text-1 mb-0 d-none d-md-block">ÜCRETSIZ İADE, 200TL ve ÜZERİ SIPARIŞLERDE ÜCRETSİZ KARGO</p>
+										<p class="font-weight-semibold text-1 mb-0 d-none d-sm-block d-md-none">200 ₺ ve ÜZERİ SIPARIŞLERDE ÜCRETSİZ KARGO</p>
+										<p class="font-weight-semibold text-1 mb-0 d-none d-md-block">ÜCRETSIZ İADE, 200 ₺ ve ÜZERİ SIPARIŞLERDE ÜCRETSİZ KARGO</p>
 									</div>
 								</div>
 								<div class="header-column justify-content-end col-auto px-0">
@@ -220,33 +220,46 @@
 												<a href="#" class="header-nav-features-toggle">
 													<img src="~/img/icons/icon-cart-big.svg" height="30" alt="" class="header-nav-top-icon-img">
 													<span class="cart-info">
-														<span class="cart-qty">@Model.Products?.Count()</span>
+														<span class="cart-qty">@Model.Products?.Count(x => x.basket == true)</span>
 													</span>
 												</a>
 												<div class="header-nav-features-dropdown" id="headerTopCartDropdown">
-													<ol class="mini-products-list">
-														@foreach (var item in Model.Products!)
+													@if (Model.Products != null)
 														{
-															<li class="item">
-																<a href="#" title="@item.name" class="product-image">
-																	<img src="~/img/products/product-1.jpg" alt="@item.name">
-																</a>
-																<div class="product-details">
-																	<p class="product-name">
-																		<a href="#">@item.name</a>
-																	</p>
-																	<p class="qty-price">
-																		1X <span class="price">@item.price TL</span>
-																	</p>
-																	<a href="#" title="Remove This Item" class="btn-remove"><i class="fas fa-times"></i></a>
-																</div>
-															</li>
-														} 
-													</ol>
+															<ol class="mini-products-list">
+																@foreach (var item in Model.Products)
+																{
+																	if (item.basket == true)
+																	{
+																		<li class="item">
+																			<a href="/Product/Details/@item.id" title="@item.name" class="product-image">
+																				<img src="~/img/products/product-1.jpg" alt="@item.name">
+																			</a>
+																			<div class="product-details">
+																				<p class="product-name">
+																					<a href="/Product/Details/@item.id">@item.name</a>
+																				</p>
+																				<p class="qty-price">
+																					1X <span class="price">@item.price.ToString("N2") ₺</span>
+																				</p>
+																				<a href="#" title="Remove This Item" class="btn-remove">
+																					<i class="fas fa-times"></i>
+																				</a>
+																			</div>
+																		</li>
+																	}
+																}
+															</ol>
+														}
+														else
+														{
+															<p>Sepetiniz boş.</p>
+														}
+
 													<div class="totals">
 														<span class="label">Total:</span>
 														<span class="price-total">
-														<span class="price">$@((Model.Products?.Sum(p => p.price) ?? 0).ToString("N2"))</span>
+														<span class="price">@((Model.Products?.Sum(p => p.price) ?? 0).ToString("N2")) ₺</span>
 														</span>
 													</div>
 													<div class="actions">

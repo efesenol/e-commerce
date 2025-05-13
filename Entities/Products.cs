@@ -13,6 +13,8 @@ namespace e_commerce.Entities
         public string? img { get; set; }
         public int quantity { get; set; }
         public double price { get; set; }
+        public bool? discount { get; set; }
+        public double discountPrice { get; set; }
         public int userId { get; set; }
         public bool favorite { get; set; }
         public bool basket { get; set; }

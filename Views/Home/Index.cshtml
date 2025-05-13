@@ -5,7 +5,8 @@
 
 <!-- Owl Carousel CSS -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
+<link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
 
 <!-- Owl Carousel JS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
@@ -73,7 +74,8 @@
             <div class="featured-box featured-box-primary featured-box-effect-4">
                 <div class="box-content">
                     <a href="/kategoriler" style="text-decoration: none;">
-                        <img src="https://cdn.dsmcdn.com/mnresize/75/75/homepage/prod/2024-12-03/ce366206-d014-42c8-a745-c44e1d0de927.png">
+                        <img
+                            src="https://cdn.dsmcdn.com/mnresize/75/75/homepage/prod/2024-12-03/ce366206-d014-42c8-a745-c44e1d0de927.png">
                         <h4 class="font-weight-normal text-2">İyi Fiyatlı Ürünler</h4>
                     </a>
                 </div>
@@ -83,7 +85,8 @@
             <div class="featured-box featured-box-primary featured-box-effect-4">
                 <div class="box-content">
                     <a href="/kategoriler" style="text-decoration: none;">
-                        <img src="https://cdn.dsmcdn.com/mnresize/75/75/homepage/prod/2024-12-03/3116e405-80ca-4f51-a999-035c0aee3335.png">
+                        <img
+                            src="https://cdn.dsmcdn.com/mnresize/75/75/homepage/prod/2024-12-03/3116e405-80ca-4f51-a999-035c0aee3335.png">
                         <h4 class="font-weight-normal text-2">Sen De Al!</h4>
                     </a>
                 </div>
@@ -93,7 +96,8 @@
             <div class="featured-box featured-box-primary featured-box-effect-4">
                 <div class="box-content">
                     <a href="/kategoriler" style="text-decoration: none;">
-                        <img src="https://cdn.dsmcdn.com/mnresize/75/75/homepage/prod/2024-12-03/12dc5d02-c3b8-4543-9b97-188dc6ff26f1.png">
+                        <img
+                            src="https://cdn.dsmcdn.com/mnresize/75/75/homepage/prod/2024-12-03/12dc5d02-c3b8-4543-9b97-188dc6ff26f1.png">
                         <h4 class="font-weight-normal text-2">Avantajlı Ürünler</h4>
                     </a>
                 </div>
@@ -103,7 +107,8 @@
             <div class="featured-box featured-box-primary featured-box-effect-4">
                 <div class="box-content">
                     <a href="/kategoriler" style="text-decoration: none;">
-                        <img src="https://cdn.dsmcdn.com/mnresize/75/75/homepage/prod/2024-12-03/f2fb237a-bfee-48b9-aa80-40675bc7e3fe.png">
+                        <img
+                            src="https://cdn.dsmcdn.com/mnresize/75/75/homepage/prod/2024-12-03/f2fb237a-bfee-48b9-aa80-40675bc7e3fe.png">
                         <h4 class="font-weight-normal text-2">İndirim Kuponlarım</h4>
                     </a>
 
@@ -114,7 +119,8 @@
             <div class="featured-box featured-box-primary featured-box-effect-4">
                 <div class="box-content">
                     <a href="/kategoriler" style="text-decoration: none;">
-                        <img src="https://cdn.dsmcdn.com/mnresize/75/75/homepage/prod/2024-12-03/ab8a4bec-6dec-4b95-8141-cd22ca27d684.png">
+                        <img
+                            src="https://cdn.dsmcdn.com/mnresize/75/75/homepage/prod/2024-12-03/ab8a4bec-6dec-4b95-8141-cd22ca27d684.png">
                         <h4 class="font-weight-normal text-2">Yeni Gelen Ürünler</h4>
                     </a>
                 </div>
@@ -150,24 +156,59 @@
         <div class="owl-carousel owl-theme nav-style-1" id="product-carousel">
             @foreach (var item in Model.Products!)
             {
-                <div class="card position-relative">
-<i class="heart-icon fa-heart @(item.favorite ? "fa-solid liked" : "fa-regular")" data-id="@item.id"></i>
-                    <img class="card-img-top" src="img/@item.img" alt="Card Image">
-                    <div class="card-body">
-                        <h4 class="card-title mb-1 text-4 font-weight-bold">@item.name</h4>
-                        <p class="card-text mb-2 pb-1">@item.description</p>
-                        <p class="card-text mb-2 pb-1">@item.price.ToString("N2") TL</p>
-                        <a href="#" class="read-more text-color-primary font-weight-semibold text-2">Read More <i
-                                class="fas fa-angle-right position-relative top-1 ms-1"></i></a>
+                @if (item.showcase == true)
+                {
+                    var hasDiscount = item.discount == true && item.price > 0 && item.discountPrice < item.price;
+                    var discountPercent = hasDiscount ? Math.Round((item.price - item.discountPrice) / item.price * 100, 0) : 0;
+
+                    <div class="card position-relative">
+                        <i class="heart-icon fa-heart @(item.favorite ? "fa-solid liked" : "fa-regular")"
+                            data-id="@item.id"></i>
+
+
+                        @if (hasDiscount)
+                        {
+                            <span class="badge bg-danger position-absolute top-0 start-0 m-2 px-2 py-1 text-white"
+                                style="font-size: 0.8rem;">
+                                @discountPercent% İNDİRİM
+                            </span>
+                        }
+
+                       <a asp-action="Details" asp-route-id="@item.id">
+                                <img class="card-img-top" src="img/@item.img" alt="Card Image" style="height: 300px; object-fit: cover;" />
+                        </a>
+
+                        <div class="card-body">
+                            <h4 class="card-title mb-1 text-4 font-weight-bold">@item.name</h4>
+                            <p class="card-text mb-2 pb-1">@item.description</p>
+
+                            <p class="card-text mb-2 pb-1">
+                                @if (hasDiscount)
+                                {
+                                    <span class="text-decoration-line-through text-muted me-2">@item.price.ToString("N2") ₺</span>
+                                    <span class="text-danger">@item.discountPrice.ToString("N2") ₺</span>
+                                }
+                                else
+                                {
+                                    <span>@item.price.ToString("N2") ₺</span>
+                                }
+                            </p>
+
+                            <a asp-action="Details" asp-route-id="@item.id"
+                                class="read-more text-color-primary font-weight-semibold text-2">
+                                Detayları Gör <i class="fas fa-angle-right position-relative top-1 ms-1"></i>
+                            </a>
+                        </div>
                     </div>
-                </div>
-
-
+                }
             }
+
         </div>
 
     </div>
 </div>
+
+
 
 <br><br><br>
 <div class="row">
@@ -176,20 +217,52 @@
         <div class="owl-carousel owl-theme nav-style-1" id="product-carousel">
             @foreach (var item in Model.Products!)
             {
-                <div class="card position-relative">
-<!-- Örnek Razor kodu -->
-<i class="heart-icon fa-heart @(item.favorite ? "fa-solid liked" : "fa-regular")" data-id="@item.id"></i>
-                    <img class="card-img-top" src="img/@item.img" alt="Card Image">
-                    <div class="card-body">
-                        <h4 class="card-title mb-1 text-4 font-weight-bold">@item.name</h4>
-                        <p class="card-text mb-2 pb-1">@item.description</p>
-                        <p class="card-text mb-2 pb-1">@item.price.ToString("N2") TL</p>
-                        <a href="#" class="read-more text-color-primary font-weight-semibold text-2">Read More <i
-                                class="fas fa-angle-right position-relative top-1 ms-1"></i></a>
+                @if (item.discount == true)
+                {
+                    var hasDiscount = item.discount == true && item.price > 0 && item.discountPrice < item.price;
+                    var discountPercent = hasDiscount ? Math.Round((item.price - item.discountPrice) / item.price * 100, 0) : 0;
+
+                    <div class="card position-relative">
+                        <i class="heart-icon fa-heart @(item.favorite ? "fa-solid liked" : "fa-regular")"
+                            data-id="@item.id"></i>
+
+
+                        @if (hasDiscount)
+                        {
+                            <span class="badge bg-danger position-absolute top-0 start-0 m-2 px-2 py-1 text-white"
+                                style="font-size: 0.8rem;">
+                                @discountPercent% İNDİRİM
+                            </span>
+                        }
+                            <a asp-action="Details" asp-route-id="@item.id">
+                                <img class="card-img-top" src="img/@item.img" alt="Card Image" style="height: 300px; object-fit: cover;" />
+                            </a> 
+
+
+                        <div class="card-body">
+                            <h4 class="card-title mb-1 text-4 font-weight-bold">@item.name</h4>
+                            <p class="card-text mb-2 pb-1">@item.description</p>
+
+                            <p class="card-text mb-2 pb-1">
+                                @if (hasDiscount)
+                                {
+                                    <span class="text-decoration-line-through text-muted me-2">@item.price.ToString("N2") TL</span>
+                                    <span class="text-danger">@item.discountPrice.ToString("N2") TL</span>
+                                }
+                                else
+                                {
+                                    @item.price.ToString("N2")
+                                }
+                            </p>
+
+                            <a asp-action="Details" asp-route-id="@item.id"
+                                class="read-more text-color-primary font-weight-semibold text-2">
+                                Detayları Gör <i class="fas fa-angle-right position-relative top-1 ms-1"></i>
+                            </a>
+                        </div>
                     </div>
-                </div>
 
-
+                }
             }
         </div>
 
@@ -346,8 +419,7 @@
             });
         });
     });
-    
+
 </script>
 
 <script src="~/js/myScript/favorite.js"></script>
-

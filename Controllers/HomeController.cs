@@ -49,10 +49,35 @@ public class HomeController : Controller
     public IActionResult Favorite()
     {
         var viewModel = new ViewModel();
-        viewModel.Products = _context.Products.Where(x => x.active == true && x.favorite == true).ToList();
+        viewModel.Products = _context.Products.Where(x => x.active == true).ToList();
         return View(viewModel);
     }
 
+   public IActionResult Details(int id)
+{
+    var product = _context.Products.FirstOrDefault(p => p.id == id);
+    if (product == null) return NotFound();
+
+    var viewModel = new ViewModel
+    {
+        Products = _context.Products.Where(y => y.active == true).ToList(),
+        Product = product
+    };
+
+
+    return View(viewModel);
+}
+[HttpPost]
+public IActionResult AddToCart(int id)
+{
+    var product = _context.Products.FirstOrDefault(p => p.id == id);
+    if (product == null) return NotFound();
+
+    product.basket = true;
+    _context.SaveChanges();
+
+    return RedirectToAction("Details", new { id });
+}
 
 
 }

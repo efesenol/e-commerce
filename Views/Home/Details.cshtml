@@ -1,0 +1,50 @@
+@model e_commerce.Models.ViewModel
+
+@{
+    ViewData["Title"] = "Ürün Detayı";
+    var product = Model.Product!;
+    var hasDiscount = product.discount == true && product.price > 0 && product.discountPrice < product.price;
+    var discountPercent = hasDiscount ? Math.Round((product.price - product.discountPrice) / product.price * 100, 0) : 0;
+}
+
+
+<div class="container mt-5">
+    <div class="row">
+        <!-- Ürün Görseli -->
+        <div class="col-md-6 text-center position-relative">
+    @if (hasDiscount)
+    {
+        <span class="badge bg-danger position-absolute top-0 start-0 m-3 px-3 py-2" style="font-size: 1rem;">
+            @discountPercent% İNDİRİM
+        </span>
+    }
+    <img src="/img/@product.img" alt="@product.name" class="img-fluid rounded shadow-sm" style="height:100%;width:100%" />
+</div>
+
+
+        <!-- Ürün Bilgileri -->
+        <div class="col-md-6">
+            <h2 class="mb-3">@product.name</h2>
+
+            <h4 class="mb-3">
+                @if (hasDiscount)
+                {
+                    <span class="text-muted text-decoration-line-through me-2">@product.price.ToString("N2") ₺</span>
+                    <span class="text-success">@product.discountPrice.ToString("N2") ₺</span>
+                }
+                else
+                {
+                    <span class="text-success">@product.price.ToString("N2") ₺</span>
+                }
+            </h4>
+
+            <p class="text-muted">@product.description</p>
+
+            <form method="post" asp-action="AddToCart" asp-route-id="@product.id">
+                <button type="submit" class="btn btn-primary btn-lg mt-4">Sepete Ekle</button>
+            </form>
+
+            <a href="/kategoriler" class="btn btn-outline-secondary mt-3">← Ürünlere Dön</a>
+        </div>
+    </div>
+</div>
