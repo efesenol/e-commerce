@@ -6,10 +6,19 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-builder.Services.AddDbContext<MyContext>(options => {
+builder.Services.AddDbContext<MyContext>(options =>
+{
     var config = builder.Configuration;
     var connectionString = config.GetConnectionString("sql_connection");
     options.UseSqlServer(connectionString);
+});
+
+builder.Services.AddDistributedMemoryCache(); // Session için gerekli
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(30); // Oturum süresi 30 dakika
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
 });
 
 var app = builder.Build();
@@ -27,6 +36,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseSession(); // Session Middleware burada olmal?
 app.UseAuthorization();
 
 app.MapControllerRoute(

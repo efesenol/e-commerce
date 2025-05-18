@@ -8,7 +8,7 @@
     <title>@ViewData["Title"]</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/e_commerce.styles.css" asp-append-version="true" />
+    @* <link rel="stylesheet" href="~/e_commerce.styles.css" asp-append-version="true" /> *@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 	
@@ -202,7 +202,7 @@
 										<ul class="header-extra-info">
 											<li class="ms-0 ms-xl-4">
 												<div class="header-extra-info-icon">
-													<a href="#" class="text-decoration-none text-color-dark text-color-hover-primary text-2">
+													<a href="/login" class="text-decoration-none text-color-dark text-color-hover-primary text-2">
 														<i class="icons icon-user"></i>
 													</a>
 												</div>
@@ -233,7 +233,7 @@
 																	{
 																		<li class="item">
 																			<a href="/Product/Details/@item.id" title="@item.name" class="product-image">
-																				<img src="~/img/products/product-1.jpg" alt="@item.name">
+																				<img style="height:100px;object-fit: cover;" src="~/img/@item.img" alt="@item.name">
 																			</a>
 																			<div class="product-details">
 																				<p class="product-name">
