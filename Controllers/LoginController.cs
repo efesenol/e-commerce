@@ -53,7 +53,13 @@ public class LoginController : Controller
             {
                 HttpContext.Session.SetInt32("Usersid", Users.id);
                 viewModel.ResultID = 1;
-                viewModel.ResultMessage = $"Hoş geldiniz {Users.fullName}";
+                string fullName = Users.fullName!;
+                if (!string.IsNullOrWhiteSpace(fullName))
+                {
+                    fullName = char.ToUpper(fullName[0]) + fullName.Substring(1).ToLower();
+                }
+                viewModel.ResultMessage = $"Hoş geldiniz {fullName}";
+
                 viewModel.RedirectURL = "/";
 
                 return Json(viewModel);
