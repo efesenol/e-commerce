@@ -13,6 +13,8 @@ namespace e_commerce.data
         public DbSet<Users> Users => Set<Users>();
         public DbSet<Products> Products => Set<Products>();
         public DbSet<Menus> Menus => Set<Menus>();
+        public DbSet<Basket> Basket => Set<Basket>();
+        public DbSet<BasketItem> BasketItem => Set<BasketItem>();
         
        
 
