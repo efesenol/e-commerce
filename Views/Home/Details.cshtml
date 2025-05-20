@@ -40,11 +40,12 @@
 
             <p class="text-muted">@product.description</p>
 
-            <form method="post" asp-action="AddToCart" asp-route-id="@product.id">
-                <button type="submit" class="btn btn-primary btn-lg mt-4">Sepete Ekle</button>
+            <form method="post" asp-action="AddToBasket" asp-route-id="@product.id">
+            <button class="btn btn-primary btn-lg mt-4" onclick="addToBasket(@product.id)">Sepete Ekle</button>
             </form>
 
             <a href="/kategoriler" class="btn btn-outline-secondary mt-3">← Ürünlere Dön</a>
         </div>
     </div>
 </div>
+

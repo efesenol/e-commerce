@@ -53,31 +53,56 @@ public class HomeController : Controller
         return View(viewModel);
     }
 
-   public IActionResult Details(int id)
-{
-    var product = _context.Products.FirstOrDefault(p => p.id == id);
-    if (product == null) return NotFound();
-
-    var viewModel = new ViewModel
+    public IActionResult Details(int id)
     {
-        Products = _context.Products.Where(y => y.active == true).ToList(),
-        Product = product
-    };
+        var product = _context.Products.FirstOrDefault(p => p.id == id);
+        if (product == null) return NotFound();
+
+        var viewModel = new ViewModel
+        {
+            Products = _context.Products.Where(y => y.active == true).ToList(),
+            Product = product
+        };
 
 
-    return View(viewModel);
-}
-[HttpPost]
-public IActionResult AddToCart(int id)
-{
-    var product = _context.Products.FirstOrDefault(p => p.id == id);
-    if (product == null) return NotFound();
+        return View(viewModel);
+    }
+    [HttpPost]
+    public IActionResult AddToBasket(int id)
+    {
+        var userId = HttpContext.Session.GetInt32("Usersid");
+        if (userId == null)
+        {
+            TempData["ErrorMessage"] = "Sepete eklemek için giriş yapmalısınız.";
+            return Redirect("/Login");
+        }
 
-    product.basket = true;
-    _context.SaveChanges();
+        var basket = _context.Basket.FirstOrDefault(b => b.userId == userId);
+        if (basket == null)
+        {
+            basket = new Basket { userId = userId.Value };
+            _context.Basket.Add(basket);
+            _context.SaveChanges();
+        }
 
-    return RedirectToAction("Details", new { id });
-}
+        bool alreadyExists = _context.BasketItem
+            .Any(b => b.basketId == basket.id && b.productId == id);
+
+        if (!alreadyExists)
+        {
+            _context.BasketItem.Add(new BasketItem
+            {
+                basketId = basket.id,
+                productId = id
+            });
+            _context.SaveChanges();
+        }
+
+        TempData["SuccessMessage"] = "Ürün sepete eklendi!";
+        return RedirectToAction("Index", "Home");
+    }
+
+
 
 
 }
