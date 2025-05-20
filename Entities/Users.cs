@@ -11,8 +11,6 @@ namespace e_commerce.Entities
         public string? fullName { get; set; }
         public string? email { get; set; }
         public string? password { get; set; }
-        public int basketId { get; set; }
-        public int productId { get; set; }
         public bool active { get; set; }
         public bool deleted { get; set; }
         public DateTime? createTime { get; set; }
