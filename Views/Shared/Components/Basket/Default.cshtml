@@ -25,7 +25,7 @@
                             <a href="/Product/Details/@item.id">@item.name</a>
                         </p>
                         <p class="qty-price">
-                            1X <span class="price">@item.price.ToString("N2") ₺</span>
+                            @item.quantity X <span class="price">@item.discountPrice.ToString("N2") ₺</span>
                         </p>
                         <a href="#" class="btn-remove"><i class="fas fa-times"></i></a>
                     </div>
@@ -35,7 +35,9 @@
         <div class="totals">
             <span class="label">Total:</span>
             <span class="price-total">
-                <span class="price">@Model.Products.Sum(p => p.price).ToString("N2") ₺</span>
+                <span class="price">
+                    @Model.Products.Sum(p => p.quantity * p.discountPrice).ToString("N2") ₺
+                </span>
             </span>
         </div>
         <div class="actions">
@@ -48,15 +50,15 @@
         <p>Sepetiniz boş.</p>
     }
     @if (TempData["SuccessMessage"] != null)
-{
-    <div class="alert alert-success">
-        @TempData["SuccessMessage"]
-    </div>
-}
-@if (TempData["ErrorMessage"] != null)
-{
-    <div class="alert alert-danger">
-        @TempData["ErrorMessage"]
-    </div>
-}
+    {
+        <div class="alert alert-success">
+            @TempData["SuccessMessage"]
+        </div>
+    }
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-danger">
+            @TempData["ErrorMessage"]
+        </div>
+    }
 </div>

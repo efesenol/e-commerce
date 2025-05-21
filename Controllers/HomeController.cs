@@ -98,11 +98,21 @@ public class HomeController : Controller
             _context.SaveChanges();
         }
 
-        TempData["SuccessMessage"] = "Ürün sepete eklendi!";
         return RedirectToAction("Index", "Home");
     }
+    [Route("profilim")]
+    public IActionResult Profile()
+    {
+        var userId = HttpContext.Session.GetInt32("Usersid");
+        if (userId == null)
+        {
+            TempData["ErrorMessage"] = "Sepete eklemek için giriş yapmalısınız.";
+            return Redirect("/Login");
+        }
 
-
-
+        var viewModel = new ViewModel();
+        viewModel.Users = _context.Users.Where(x => x.active == true).ToList();
+        return View(viewModel); 
+    }
 
 }
