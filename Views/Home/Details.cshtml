@@ -1,4 +1,4 @@
-@model e_commerce.Models.ViewModel
+@model ViewModel
 
 @{
     ViewData["Title"] = "Ürün Detayı";
@@ -7,30 +7,46 @@
     var discountPercent = hasDiscount ? Math.Round((product.price - product.discountPrice) / product.price * 100, 0) : 0;
 }
 
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
 
-<div class="container mt-5">
-    <div class="row">
-        <!-- Ürün Görseli -->
-        <div class="col-md-6 text-center position-relative">
-    @if (hasDiscount)
-    {
-        <span class="badge bg-danger position-absolute top-0 start-0 m-3 px-3 py-2" style="font-size: 1rem;">
-            @discountPercent% İNDİRİM
-        </span>
-    }
-    <img src="/img/@product.img" alt="@product.name" class="img-fluid rounded shadow-sm" style="height:100%;width:100%" />
-</div>
-
-
-        <!-- Ürün Bilgileri -->
+<div class="container py-5">
+    <div class="row g-4">
+        <!-- Sol: Ürün görseli ve galerisi -->
         <div class="col-md-6">
-            <h2 class="mb-3">@product.name</h2>
+            <div class="position-relative">
+                @if (hasDiscount)
+                {
+                    <span class="badge bg-danger position-absolute top-0 start-0 px-3 py-2 fs-6">
+                        @discountPercent% İndirim
+                    </span>
+                }
+                <img src="/img/@product.img" class="img-fluid rounded border shadow-sm" alt="@product.name" />
+            </div>
+            <div class="d-flex mt-3 gap-2 overflow-auto">
+                @for (int i = 0; i < 4; i++)
+                {
+                    <div class="border rounded d-flex align-items-center justify-content-center"
+                        style="width: 70px; height: 70px; overflow: hidden;">
+                        <img src="/img/@product.img" style="max-width: 100%; max-height: 100%; object-fit: contain;" />
+                    </div>
+                }
+            </div>
+        </div>
 
-            <h4 class="mb-3">
+        <!-- Sağ: Ürün bilgileri -->
+        <div class="col-md-6">
+            <h2>@product.name</h2>
+            <div class="mb-2 text-warning">
+                <i class="bi bi-star-fill"></i> <i class="bi bi-star-fill"></i> <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i> <i class="bi bi-star-half"></i>
+                <span class="text-muted">(85 Değerlendirme)</span>
+            </div>
+
+            <h4>
                 @if (hasDiscount)
                 {
                     <span class="text-muted text-decoration-line-through me-2">@product.price.ToString("N2") ₺</span>
-                    <span class="text-success">@product.discountPrice.ToString("N2") ₺</span>
+                    <span class="text-danger">@product.discountPrice.ToString("N2") ₺</span>
                 }
                 else
                 {
@@ -40,12 +56,66 @@
 
             <p class="text-muted">@product.description</p>
 
+            <div class="mb-3">
+                <label class="fw-bold">Beden:</label>
+                <div class="btn-group" role="group">
+                    <input type="radio" class="btn-check" name="size" id="S" autocomplete="off">
+                    <label class="btn btn-outline-secondary" for="S">S</label>
+                    <input type="radio" class="btn-check" name="size" id="M" autocomplete="off">
+                    <label class="btn btn-outline-secondary" for="M">M</label>
+                    <input type="radio" class="btn-check" name="size" id="L" autocomplete="off">
+                    <label class="btn btn-outline-secondary" for="L">L</label>
+                    <input type="radio" class="btn-check" name="size" id="XL" autocomplete="off">
+                    <label class="btn btn-outline-secondary" for="XL">XL</label>
+                </div>
+            </div>
             <form method="post" asp-action="AddToBasket" asp-route-id="@product.id">
-            <button class="btn btn-primary btn-lg mt-4" onclick="addToBasket(@product.id)">Sepete Ekle</button>
+                <div class="mb-3">
+                    <label for="quantity" class="fw-bold">Adet:</label>
+                    <input type="number" id="quantity" name="quantity" class="form-control" value="1" min="1"
+                        max="99" />
+                </div>
             </form>
 
-            <a href="/kategoriler" class="btn btn-outline-secondary mt-3">← Ürünlere Dön</a>
+            <form method="post" asp-action="AddToBasket" asp-route-id="@product.id">
+                <div class="d-grid gap-2 mb-2">
+                    <button class="btn btn-warning btn-lg fw-bold"> Şimdi Al</button>
+                    <button class="btn btn-outline-primary btn-lg">➕ Sepete Ekle</button>
+                </div>
+            </form>
+
+            <ul class="list-unstyled text-muted small">
+                <li><i class="bi bi-truck"></i> Tahmini teslimat: <strong>2 gün içinde</strong></li>
+                <li><i class="bi bi-shop"></i> Satıcı: <span class="badge bg-success">Yetkili Satıcı</span></li>
+                <li><i class="bi bi-geo-alt"></i> Gönderim: <strong>Ankara / Çankaya</strong></li>
+                <li><i class="bi bi-credit-card"></i> Taksit: <strong>12 aya varan</strong></li>
+            </ul>
+
+            <div class="border rounded p-3 bg-light mt-4">
+                <h6>💬 Öne Çıkan Yorum</h6>
+                <p class="mb-1">"Ürün beklediğimden çok daha kaliteli çıktı, beden tam oldu. Kargo da çok hızlıydı.
+                    Teşekkürler!"</p>
+                <small class="text-muted">Y** B** • 16 Mayıs 2025</small>
+            </div>
+        </div>
+    </div>
+
+    <!-- Alt: Benzer ürünler -->
+    <div class="mt-5">
+        <h4 class="mb-3">Benzer Ürünler</h4>
+        <div class="row row-cols-2 row-cols-md-5 g-3">
+            @for (int i = 0; i < 5; i++)
+            {
+                <div class="col">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <img src="/img/@product.img" class="card-img-top" style="object-fit: contain; height: 300px;" />
+                        <div class="card-body">
+                            <h6 class="card-title">@product.name</h6>
+                            <p class="card-text text-danger fw-bold">@product.discountPrice.ToString("N2") ₺</p>
+                        </div>
+                    </div>
+                </div>
+            }
         </div>
     </div>
 </div>
-

@@ -15,6 +15,7 @@ namespace e_commerce.data
         public DbSet<Menus> Menus => Set<Menus>();
         public DbSet<Basket> Basket => Set<Basket>();
         public DbSet<BasketItem> BasketItem => Set<BasketItem>();
+        public DbSet<ProductSize> ProductSize => Set<ProductSize>();
         
        
 
