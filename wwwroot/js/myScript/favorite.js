@@ -1,17 +1,22 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Olay bağlama işlemini burada gerçekleştirebilirsiniz
+    let loginCheckDone = false;
+
     const heartIcons = document.querySelectorAll('.heart-icon');
-    
+
     heartIcons.forEach(function (icon) {
         icon.addEventListener('click', function () {
+            if (!loginCheckDone && userId === null) {
+                loginCheckDone = true; // Sadece bir kez yönlendirme yapılacak
+                window.location.href = "/Login"; // Giriş sayfası rotanıza göre değiştirin
+                return;
+            }
+
             const productId = icon.getAttribute('data-id');
 
-            // Görsel kalp değişimi
             icon.classList.toggle('liked');
             icon.classList.toggle('fa-solid');
             icon.classList.toggle('fa-regular');
 
-            // Favori durumu güncelleme isteği
             fetch(`/Home/ToggleFavorite/${productId}`, {
                 method: 'POST',
                 headers: {
@@ -34,5 +39,3 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
-
-

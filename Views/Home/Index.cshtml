@@ -1,4 +1,7 @@
 ﻿@model ViewModel
+@{
+    var userId = Context.Session.GetInt32("Usersid");
+}
 
 <!-- jQuery (OwlCarousel için gereklidir) -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -419,6 +422,9 @@
             });
         });
     });
+
+     let userId = @(userId.HasValue ? userId.Value : "null");
+
 
 </script>
 

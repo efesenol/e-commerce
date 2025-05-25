@@ -1,5 +1,9 @@
 @model ViewModel
 
+@{
+    var kullanciid = Context.Session.GetInt32("Usersid");
+}
+
 <div role="main" class="main shop pt-4">
 
 				<div class="container">
@@ -263,15 +267,15 @@
 							<div class="masonry-loader masonry-loader-showing">
 								<div class="products product-thumb-info-list" data-plugin-masonry data-plugin-options="{'layoutMode': 'fitRows'}">
                                     @foreach(var item in Model.Products!){
-										@if(item.favorite == true){
+										@if(item.favorite == true ){
 									<div class="row align-items-center">
 										<div class="col-sm-5 mb-4 mb-sm-0">
 											<div class="product mb-0">
 												<div class="product-thumb-info border-0 mb-0">
 
 													<div class="product-thumb-info-badges-wrapper">
-<span class="badge badge-ecommerce badge-success">YENİ</span>
-<span class="badge badge-ecommerce badge-danger">27% İNDİRİM</span>
+														<span class="badge badge-ecommerce badge-success">YENİ</span>
+														<span class="badge badge-ecommerce badge-danger">27% İNDİRİM</span>
 													</div>
 
 													<div class="addtocart-btn-wrapper">
@@ -317,8 +321,8 @@
 												</div>
 
 												<p class="price mb-3">
-													<span class="sale text-color-dark">@item.price.ToString("N2") TL</span>
-													<span class="amount">$22,00</span>
+													<span class="sale text-color-dark">@item.price.ToString("N2") ₺</span>
+													<span class="amount">@item.quantity.ToString("N2") ₺</span>
 												</p>
 
 												<p class="text-3-5 mb-3">@item.description</p>

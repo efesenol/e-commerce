@@ -36,6 +36,8 @@ public class HomeController : Controller
     [HttpPost]
     public IActionResult ToggleFavorite(int id)
     {
+
+        
         var product = _context.Products.FirstOrDefault(p => p.id == id);
         if (product == null)
             return NotFound();
@@ -48,6 +50,11 @@ public class HomeController : Controller
     [Route("farvoriler")]
     public IActionResult Favorite()
     {
+        var userId = HttpContext.Session.GetInt32("Usersid");
+        if (userId == null)
+        {
+            return Redirect("/Login");
+        }
         var viewModel = new ViewModel();
         viewModel.Products = _context.Products.Where(x => x.active == true).ToList();
         return View(viewModel);
