@@ -53,6 +53,11 @@
 
 		<!-- Head Libs -->
 		<script src="~/vendor/modernizr/modernizr.min.js"></script>
+		 <style>
+			.menuSize{
+				font-size: 11px!important;
+			}
+		 </style>
 </head>
 <body>
 	@model ViewModel
@@ -237,23 +242,17 @@
 											<div class="header-nav-main header-nav-main-square header-nav-main-dropdown-no-borders header-nav-main-effect-3 header-nav-main-sub-effect-1 w-100">
 												<nav class="collapse w-100">
 													<ul class="nav nav-pills w-100" id="mainNav">
+														
 														<li class="dropdown">
-															<a class="dropdown-item dropdown-toggle" href="/">
-																Ana Sayfa
-															</a>
-															
-														</li>
-														<li class="dropdown">
-															<a class="dropdown-item dropdown-toggle" href="/kategoriler">
+															<a class="dropdown-item dropdown-toggle menuSize" href="/kategoriler">
 																Kategoriler
 															</a>
 															<ul class="dropdown-menu">
 																<li class="dropdown-submenu">
-																	<a class="dropdown-item" href="#">Erkek</a>
+																	<a class="dropdown-item" href="#">Kadın</a>
 																	<ul class="dropdown-menu">
-																		<li><a class="dropdown-item" href="feature-headers-overview.html">Overview</a></li>
 																		<li class="dropdown-submenu">
-																			<a class="dropdown-item" href="#">Classic</a>
+																			<a class="dropdown-item" href="#">Giyim</a>
 																			<ul class="dropdown-menu">
 																				<li><a class="dropdown-item" href="feature-headers-classic.html">Classic</a></li>
 																				<li><a class="dropdown-item" href="feature-headers-classic-language-dropdown.html">Classic + Language Dropdown</a></li>
@@ -396,21 +395,27 @@
 																	</ul>
 																</li>
 																<li class="dropdown-submenu">
-																	<a class="dropdown-item" href="#">Kadın</a>
+																	<a class="dropdown-item" href="#">Erkek</a>
 																	<ul class="dropdown-menu">
 																		<li class="dropdown-submenu">
-																			<a class="dropdown-item" href="#">Pills</a>
+																			<a class="dropdown-item" href="#">Yeni Gelenler</a>
 																			<ul class="dropdown-menu">
-																				<li><a class="dropdown-item" href="feature-navigations-pills.html">Pills</a></li>
-																				<li><a class="dropdown-item" href="feature-navigations-pills-arrows.html">Pills + Arrows</a></li>
-																				<li><a class="dropdown-item" href="feature-navigations-pills-dark-text.html">Pills Dark Text</a></li>
-																				<li><a class="dropdown-item" href="feature-navigations-pills-color-dropdown.html">Pills Color Dropdown</a></li>
-																				<li><a class="dropdown-item" href="feature-navigations-pills-square.html">Pills Square</a></li>
-																				<li><a class="dropdown-item" href="feature-navigations-pills-rounded.html">Pills Rounded</a></li>
+																				<li><a class="dropdown-item" href="feature-navigations-pills.html">Tişört</a></li>
+																				<li><a class="dropdown-item" href="feature-navigations-pills-arrows.html">Şort</a></li>
+																				<li><a class="dropdown-item" href="feature-navigations-pills-dark-text.html">Gömlek</a></li>
+																				<li><a class="dropdown-item" href="feature-navigations-pills-color-dropdown.html">Eşofman</a></li>
+																				<li><a class="dropdown-item" href="feature-navigations-pills-square.html">Ceket</a></li>
+																				<li><a class="dropdown-item" href="feature-navigations-pills-rounded.html">Kazak</a></li>
+																				<li><a class="dropdown-item" href="feature-navigations-pills-rounded.html">Mont</a></li>
+																				<li><a class="dropdown-item" href="feature-navigations-pills-rounded.html">Sweatshirt</a></li>
+																				<li><a class="dropdown-item" href="feature-navigations-pills-rounded.html">Yağmurluk</a></li>
+																				<li><a class="dropdown-item" href="feature-navigations-pills-rounded.html">Blazer</a></li>
+																				<li><a class="dropdown-item" href="feature-navigations-pills-rounded.html">Polar</a></li>
+
 																			</ul>
 																		</li>
 																		<li class="dropdown-submenu">
-																			<a class="dropdown-item" href="#">Stripes</a>
+																			<a class="dropdown-item" href="#">Tümünü GÖr</a>
 																			<ul class="dropdown-menu">
 																				<li><a class="dropdown-item" href="feature-navigations-stripe.html">Stripe</a></li>
 																				<li><a class="dropdown-item" href="feature-navigations-stripe-dark-text.html">Stripe Dark Text</a></li>
@@ -418,7 +423,7 @@
 																			</ul>
 																		</li>
 																		<li class="dropdown-submenu">
-																			<a class="dropdown-item" href="#">Hover Effects</a>
+																			<a class="dropdown-item" href="#">Çok Satanlar</a>
 																			<ul class="dropdown-menu">
 																				<li><a class="dropdown-item" href="feature-navigations-hover-top-line.html">Top Line</a></li>
 																				<li><a class="dropdown-item" href="feature-navigations-hover-top-line-animated.html">Top Line Animated</a></li>
@@ -431,7 +436,7 @@
 																			</ul>
 																		</li>
 																		<li class="dropdown-submenu">
-																			<a class="dropdown-item" href="#">Vertical</a>
+																			<a class="dropdown-item" href="#">Keten</a>
 																			<ul class="dropdown-menu">
 																				<li><a class="dropdown-item" href="feature-navigations-vertical-dropdown.html">Dropdown</a></li>
 																				<li><a class="dropdown-item" href="feature-navigations-vertical-expand.html">Expand</a></li>
@@ -440,14 +445,14 @@
 																			</ul>
 																		</li>
 																		<li class="dropdown-submenu">
-																			<a class="dropdown-item" href="#">Hamburguer</a>
+																			<a class="dropdown-item" href="#">Gömlek</a>
 																			<ul class="dropdown-menu">
 																				<li><a class="dropdown-item" href="feature-navigations-hamburguer-sidebar.html">Sidebar</a></li>
 																				<li><a class="dropdown-item" href="feature-navigations-hamburguer-overlay.html">Overlay</a></li>
 																			</ul>
 																		</li>
 																		<li class="dropdown-submenu">
-																			<a class="dropdown-item" href="#">Dropdown Styles</a>
+																			<a class="dropdown-item" href="#">T-shirt</a>
 																			<ul class="dropdown-menu">
 																				<li><a class="dropdown-item" href="feature-navigations-dropdowns-dark.html">Dark</a></li>
 																				<li><a class="dropdown-item" href="feature-navigations-dropdowns-light.html">Light</a></li>
@@ -461,7 +466,7 @@
 																			</ul>
 																		</li>
 																		<li class="dropdown-submenu">
-																			<a class="dropdown-item" href="#">Dropdown Effects</a>
+																			<a class="dropdown-item" href="#">Polo T-shirt</a>
 																			<ul class="dropdown-menu">
 																				<li><a class="dropdown-item" href="feature-navigations-dropdowns-effect-no-effect.html">No Effect</a></li>
 																				<li><a class="dropdown-item" href="feature-navigations-dropdowns-effect-opacity.html">Opacity</a></li>
@@ -472,7 +477,7 @@
 																			</ul>
 																		</li>
 																		<li class="dropdown-submenu">
-																			<a class="dropdown-item" href="#">Font Styles</a>
+																			<a class="dropdown-item" href="#">Keten Pantolon</a>
 																			<ul class="dropdown-menu">
 																				<li><a class="dropdown-item" href="feature-navigations-font-small.html">Small</a></li>
 																				<li><a class="dropdown-item" href="feature-navigations-font-medium.html">Medium</a></li>
@@ -481,17 +486,17 @@
 																			</ul>
 																		</li>
 																		<li class="dropdown-submenu">
-																			<a class="dropdown-item" href="#">Icons</a>
+																			<a class="dropdown-item" href="#">Şort</a>
 																			<ul class="dropdown-menu">
 																				<li><a class="dropdown-item" href="feature-navigations-icons.html">Icons</a></li>
 																				<li><a class="dropdown-item" href="feature-navigations-icons-float-icons.html">Float Icons</a></li>
 																			</ul>
 																		</li>
-																		<li><a class="dropdown-item" href="feature-navigations-sub-title.html">Sub Title</a></li>
-																		<li><a class="dropdown-item" href="feature-navigations-divisors.html">Divisors</a></li>
-																		<li><a class="dropdown-item" href="feature-navigations-logo-between.html">Logo Between</a></li>
-																		<li><a class="dropdown-item" href="feature-navigations-one-page.html">One Page Nav</a></li>
-																		<li><a class="dropdown-item" href="feature-navigations-click-to-open.html">Click To Open</a></li>
+																		<li><a class="dropdown-item" href="feature-navigations-sub-title.html">Jean</a></li>
+																		<li><a class="dropdown-item" href="feature-navigations-divisors.html">Pantolon</a></li>
+																		<li><a class="dropdown-item" href="feature-navigations-logo-between.html">İnce Ceket</a></li>
+																		<li><a class="dropdown-item" href="feature-navigations-one-page.html">Mont</a></li>
+																		<li><a class="dropdown-item" href="feature-navigations-click-to-open.html">Ayakkabı</a></li>
 																	</ul>
 																</li>
 																<li class="dropdown-submenu">
@@ -754,76 +759,53 @@
                                                             
 															</ul>
 														</li>
-														<li class="dropdown">
-															<a class="dropdown-item dropdown-toggle" href="#">
+														<li class="dropdown ">
+															<a class="dropdown-item dropdown-toggle menuSize" href="#">
 																Kadın
 															</a>
-															
 														</li>
 														<li class="dropdown">
-															<a class="dropdown-item dropdown-toggle" href="#">
+															<a class="dropdown-item dropdown-toggle menuSize" href="#">
 																Erkek
 															</a>
 															
 														</li>
+														<li class="dropdown">
+															<a class="dropdown-item dropdown-toggle menuSize" href="/">
+																Anne & Çocuk
+															</a>
+														</li>
+														<li class="dropdown">
+															<a class="dropdown-item dropdown-toggle menuSize" href="/">
+																Ev & Yaşam
+															</a>
+														</li>
+														<li class="dropdown">
+															<a class="dropdown-item dropdown-toggle menuSize" href="/">
+																Süpermarket
+															</a>
+														</li>
+														<li class="dropdown">
+															<a class="dropdown-item dropdown-toggle menuSize" href="/">
+																Kozmetik
+															</a>
+														</li>
+														<li class="dropdown">
+															<a class="dropdown-item dropdown-toggle menuSize" href="/">
+																Ayakkabı & Çanta
+															</a>
+														</li>
+														<li class="dropdown">
+															<a class="dropdown-item dropdown-toggle menuSize" href="/">
+																Elektronik
+															</a>
+														</li>
+														<li class="dropdown">
+															<a class="dropdown-item dropdown-toggle menuSize" href="/">
+																Çok Satanlar
+															</a>
+														</li>
 														
-														<li class="dropdown">
-															<a class="dropdown-item dropdown-toggle active" href="/kategoriler">
-																Shop
-															</a>
-															<ul class="dropdown-menu">
-																<li class="dropdown-submenu">
-																	<a class="dropdown-item" href="#">Single Product</a>
-																	<ul class="dropdown-menu">
-																		<li><a class="dropdown-item" href="shop-product-full-width.html">Full Width</a></li>
-																		<li><a class="dropdown-item" href="shop-product-sidebar-left.html">Left Sidebar</a></li>
-																		<li><a class="dropdown-item" href="shop-product-sidebar-right.html">Right Sidebar</a></li>
-																		<li><a class="dropdown-item" href="shop-product-sidebar-left-and-right.html">Left and Right Sidebar</a></li>
-																	</ul>
-																</li>
-																<li><a class="dropdown-item" href="shop-4-columns.html">4 Columns</a></li>
-																<li class="dropdown-submenu">
-																	<a class="dropdown-item" href="#">3 Columns</a>
-																	<ul class="dropdown-menu">
-																		<li><a class="dropdown-item" href="shop-3-columns-full-width.html">Full Width</a></li>
-																		<li><a class="dropdown-item" href="shop-3-columns-sidebar-left.html">Left Sidebar</a></li>
-																		<li><a class="dropdown-item" href="shop-3-columns-sidebar-right.html">Right Sidebar </a></li>
-																	</ul>
-																</li>
-																<li class="dropdown-submenu">
-																	<a class="dropdown-item" href="#">2 Columns</a>
-																	<ul class="dropdown-menu">
-																		<li><a class="dropdown-item" href="shop-2-columns-full-width.html">Full Width</a></li>
-																		<li><a class="dropdown-item" href="shop-2-columns-sidebar-left.html">Left Sidebar</a></li>
-																		<li><a class="dropdown-item" href="shop-2-columns-sidebar-right.html">Right Sidebar </a></li>
-																		<li><a class="dropdown-item" href="shop-2-columns-sidebar-left-and-right.html">Left and Right Sidebar</a></li>
-																	</ul>
-																</li>
-																<li class="dropdown-submenu">
-																	<a class="dropdown-item" href="#">1 Column</a>
-																	<ul class="dropdown-menu">
-																		<li><a class="dropdown-item" href="shop-1-column-full-width.html">Full Width</a></li>
-																		<li><a class="dropdown-item" href="shop-1-column-sidebar-left.html">Left Sidebar</a></li>
-																		<li><a class="dropdown-item" href="shop-1-column-sidebar-right.html">Right Sidebar </a></li>
-																		<li><a class="dropdown-item" href="shop-1-column-sidebar-left-and-right.html">Left and Right Sidebar</a></li>
-																	</ul>
-																</li>
-																<li><a class="dropdown-item" href="shop-cart.html">Cart</a></li>
-																<li><a class="dropdown-item" href="shop-login.html">Login</a></li>
-																<li><a class="dropdown-item" href="shop-checkout.html">Checkout</a></li>
-																<li><a class="dropdown-item" href="shop-order-complete.html">Order Complete</a></li>
-															</ul>
-														</li>
-														<li class="dropdown ms-lg-auto">
-															<a href="#" class="dropdown-item">
-																Outlet
-															</a>
-														</li>
-														<li class="dropdown">
-															<a href="#" class="dropdown-item">
-																Buy Porto!
-															</a>
-														</li>
 													</ul>
 												</nav>
 											</div>
