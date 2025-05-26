@@ -17,12 +17,5 @@ namespace e_commerce.Models
         public List<ProductSize>? Sizes { get; set; } // Yeni eklendi
         public ProductSize? ProductSizes { get; set; }
         
-
-
-        
-        
-
-        
-
     }
 }

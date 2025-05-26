@@ -11,6 +11,7 @@ namespace e_commerce.Entities
         public int productId { get; set; }
         public string? size { get; set; }
         public int quantity { get; set; }
+        public int queue { get; set; }
 
     }
 }
