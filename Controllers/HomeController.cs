@@ -68,7 +68,10 @@ public class HomeController : Controller
         var viewModel = new ViewModel
         {
             Products = _context.Products.Where(y => y.active == true).ToList(),
-            Product = product
+            Product = product,
+            Sizes = _context.ProductSize
+                     .Where(s => s.productId == id)
+                     .ToList()
         };
 
 

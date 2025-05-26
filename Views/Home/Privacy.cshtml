@@ -81,7 +81,8 @@
                                         class="text-3-5 font-weight-medium font-alternative text-transform-none line-height-3 mb-0">
                                         <a href="shop-product-sidebar-right.html"
                                             class="text-color-dark text-color-hover-primary text-decoration-none">Blue
-                                            Hat</a></h3>
+                                            Hat</a>
+                                    </h3>
                                     <div title="Rated 5 out of 5">
                                         <input type="text" class="d-none" value="5" title="" data-plugin-star-rating
                                             data-plugin-options="{'displayOnly': true, 'color': 'dark', 'size':'xs'}">
@@ -109,7 +110,8 @@
                                         class="text-3-5 font-weight-medium font-alternative text-transform-none line-height-3 mb-0">
                                         <a href="shop-product-sidebar-right.html"
                                             class="text-color-dark text-color-hover-primary text-decoration-none">Adventurer
-                                            Bag</a></h3>
+                                            Bag</a>
+                                    </h3>
                                     <div title="Rated 5 out of 5">
                                         <input type="text" class="d-none" value="5" title="" data-plugin-star-rating
                                             data-plugin-options="{'displayOnly': true, 'color': 'dark', 'size':'xs'}">
@@ -137,7 +139,8 @@
                                         class="text-3-5 font-weight-medium font-alternative text-transform-none line-height-3 mb-0">
                                         <a href="shop-product-sidebar-right.html"
                                             class="text-color-dark text-color-hover-primary text-decoration-none">Baseball
-                                            Ball</a></h3>
+                                            Ball</a>
+                                    </h3>
                                     <div title="Rated 5 out of 5">
                                         <input type="text" class="d-none" value="5" title="" data-plugin-star-rating
                                             data-plugin-options="{'displayOnly': true, 'color': 'dark', 'size':'xs'}">
@@ -157,37 +160,39 @@
                 <div class="masonry-loader masonry-loader-showing">
                     <div class="row products product-thumb-info-list" data-plugin-masonry
                         data-plugin-options="{'layoutMode': 'fitRows'}">
-                       @foreach (var item in Model.Products!)
-{
-    <div class="col-sm-6 col-lg-4">
-        <div class="product mb-0">
-            <div class="product-thumb-info border-0 mb-3">
+                        @foreach (var item in Model.Products!)
+                        {
+                            <div class="col-sm-6 col-lg-4">
+                                <div class="product mb-0">
+                                    <div class="product-thumb-info border-0 mb-3">
 
-                <div class="product-thumb-info-badges-wrapper">
-                    @if (item.discount == true && item.price > 0 && item.discountPrice < item.price)
-                    {
-                        var discountPercent = Math.Round((item.price - item.discountPrice) / item.price * 100, 0);
-                        <span class="badge badge-ecommerce badge-danger">@discountPercent% OFF</span>
-                    }
+                                        <div class="product-thumb-info-badges-wrapper">
+                                            @if (item.discount == true && item.price > 0 && item.discountPrice < item.price)
+                                            {
+                                                var discountPercent = Math.Round((item.price - item.discountPrice) / item.price
+                                                * 100, 0);
+                                                <span class="badge badge-ecommerce badge-danger">@discountPercent% İndirim</span>
+                                            }
 
-                    <span class="badge badge-ecommerce badge-success">NEW</span>
-                </div>
-
-
-                                        <div class="addtocart-btn-wrapper">
-                                            <a asp-action="Details" asp-route-id="@item.id" class="text-decoration-none addtocart-btn"
-                                                title="Add to Cart">
-                                                <i class="icons icon-bag"></i>
-                                            </a>
+                                            <span class="badge badge-ecommerce badge-success">Yeni</span>
                                         </div>
+
+                                     <form method="post" asp-action="AddToBasket" asp-route-id="@item.id">
+                                        <div class="addtocart-btn-wrapper">
+                                            <button 
+                                                class="text-decoration-none addtocart-btn" title="Sepete ekle">
+                                                <i class="icons icon-bag"></i>
+                                            </button>
+                                        </div>
+                                    </form>
 
                                         <a asp-action="Details" asp-route-id="@item.id"
                                             class="quick-view text-uppercase font-weight-semibold text-2">
-                                            QUICK VIEW
+                                            Detayları Görüntüle
                                         </a>
                                         <a asp-action="Details" asp-route-id="@item.id">
                                             <div class="product-thumb-info-image">
-                                                <img alt="" class="img-fluid" src="img/products/product-grey-1.jpg">
+                                                <img alt="" class="img-fluid" src="img/@item.img">
 
                                             </div>
                                         </a>
@@ -196,24 +201,27 @@
                                         <div>
 
                                             <a href="#"
-                                                class="d-block text-uppercase text-decoration-none text-color-default text-color-hover-primary line-height-1 text-0 mb-1">electronics</a>
+                                                class="d-block text-uppercase text-decoration-none text-color-default text-color-hover-primary line-height-1 text-0 mb-1">@item.category</a>
                                             <h3
                                                 class="text-3-5 font-weight-medium font-alternative text-transform-none line-height-3 mb-0">
                                                 <a href="shop-product-sidebar-right.html"
-                                                    class="text-color-dark text-color-hover-primary">@item.name</a></h3>
+                                                    class="text-color-dark text-color-hover-primary">@item.name</a>
+                                            </h3>
 
 
                                         </div>
                                         <a href="#"
                                             class="text-decoration-none text-color-default text-color-hover-dark text-4"><i
                                                 class="far fa-heart"></i></a>
-                                         </div>
+                                    </div>
                                     <div title="Rated 5 out of 5">
                                         <input type="text" class="d-none" value="5" title="" data-plugin-star-rating
                                             data-plugin-options="{'displayOnly': true, 'color': 'default', 'size':'xs'}">
                                     </div>
                                     <p class="price text-5 mb-3">
-                                        <span class="sale text-color-dark font-weight-semi-bold">@item.discountPrice.ToString("N2") ₺ </span>
+                                        <span
+                                            class="sale text-color-dark font-weight-semi-bold">@item.discountPrice.ToString("N2")
+                                            ₺ </span>
                                         <span class="amount">@item.price.ToString("N2") ₺</span>
                                     </p>
                                 </div>

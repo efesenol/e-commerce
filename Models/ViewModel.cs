@@ -14,8 +14,11 @@ namespace e_commerce.Models
         public List<Menus>? Menus { get; set; }
         public List<Basket>? Basket { get; set; }
         public List<BasketItem>? BasketItem { get; set; }
-        public List<ProductSize>? ProductSize { get; set; }
+        public List<ProductSize>? Sizes { get; set; } // Yeni eklendi
         public ProductSize? ProductSizes { get; set; }
+        
+
+
         
         
 
