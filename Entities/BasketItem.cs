@@ -10,5 +10,7 @@ namespace e_commerce.Entities
         public int id { get; set; }
         public int basketId { get; set; }
         public int productId { get; set; }
+        public string? size { get; set; }
+        public int quantity { get; set; }
     }
 }

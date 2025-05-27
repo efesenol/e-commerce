@@ -59,33 +59,31 @@
 
             <p class="text-muted">@product.description</p>
 
-            <div class="mb-3">
-                <label class="fw-bold">Beden:</label>
-                <div class="btn-group" role="group">
-                    @foreach (var size in Model.Sizes)
-                    {
-                        var disabled = size.quantity == 0 ? "disabled" : "";
-                        <input type="radio" class="btn-check" name="size" id="@size.size" value="@size.size"
-                            autocomplete="off" data-max="@size.quantity" @disabled>
-                        <label class="btn btn-outline-secondary" for="@size.size">@size.size</label>
-                    }
-                </div>
-            </div>
             <form method="post" asp-action="AddToBasket" asp-route-id="@product.id">
-                <div class="mb-3">
-                    <label for="quantity" class="fw-bold">Adet:</label>
-                    <input type="number" id="quantity" name="quantity" class="form-control" value="1" min="1"
-                        max="@Model.Sizes.FirstOrDefault()?.quantity ?? 1" />
+    <div class="mb-3">
+        <label class="fw-bold">Beden:</label>
+        <div class="btn-group" role="group">
+            @foreach (var size in Model.Sizes!)
+            {
+                var disabled = size.quantity == 0 ? "disabled" : "";
+                <input type="radio" class="btn-check" name="size" id="@size.size" value="@size.size"
+                       autocomplete="off" data-max="@size.quantity" @disabled>
+                <label class="btn btn-outline-secondary" for="@size.size">@size.size</label>
+            }
+        </div>
+    </div>
 
-                </div>
-            </form>
+    <div class="mb-3">
+        <label for="quantity" class="fw-bold">Adet:</label>
+        <input type="number" id="quantity" name="quantity" class="form-control" value="1" min="1"
+               max="@Model.Sizes.FirstOrDefault()?.quantity ?? 1" />
+    </div>
 
-            <form method="post" asp-action="AddToBasket" asp-route-id="@product.id">
-                <div class="d-grid gap-2 mb-2">
-                    <button class="btn btn-warning btn-lg fw-bold"> Şimdi Al</button>
-                    <button class="btn btn-outline-primary btn-lg">➕ Sepete Ekle</button>
-                </div>
-            </form>
+    <div class="d-grid gap-2 mb-2">
+        <button type="submit" class="btn btn-outline-primary btn-lg">➕ Sepete Ekle</button>
+    </div>
+</form>
+
 
             <ul class="list-unstyled text-muted small">
                 <li><i class="bi bi-truck"></i> Tahmini teslimat: <strong>2 gün içinde</strong></li>

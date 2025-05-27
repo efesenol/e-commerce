@@ -1,6 +1,15 @@
 @model e_commerce.Models.ViewModel
 @{
     var kullanciid = Context.Session.GetInt32("Usersid");
+    decimal grandTotal = 0;
+    foreach (var item4 in Model.BasketItem!)
+    {
+        var product = Model.Products!.FirstOrDefault(p => p.id == item4.productId);
+        if (product != null)
+        {
+            grandTotal += item4.quantity *(int)product.discountPrice;
+        }
+    }
 }
 
 <a href="#" class="header-nav-features-toggle">
@@ -14,32 +23,41 @@
     @if (Model.Products != null && Model.Products.Any())
     {
         <ol class="mini-products-list">
-            @foreach (var item in Model.Products)
-            {
-                <li class="item">
-                    <a href="/Product/Details/@item.id" class="product-image">
-                        <img style="height:100px;object-fit: cover;" src="~/img/@item.img" alt="@item.name" />
-                    </a>
-                    <div class="product-details">
-                        <p class="product-name">
-                            <a href="/Product/Details/@item.id">@item.name</a>
-                        </p>
-                        <p class="qty-price">
-                            @item.quantity X <span class="price">@item.discountPrice.ToString("N2") ₺</span>
-                        </p>
-                        <a href="#" class="btn-remove"><i class="fas fa-times"></i></a>
-                    </div>
-                </li>
-            }
+          @foreach (var item in Model.BasketItem!)
+{
+    var product = Model.Products.FirstOrDefault(p => p.id == item.productId);
+    if (product != null)
+    {
+        var total = item.quantity * product.discountPrice;
+
+        <li class="item">
+            <a href="/Product/Details/@product.id" class="product-image">
+                <img src="~/img/@product.img" style="height:100px;object-fit: cover;" />
+            </a>
+            <div class="product-details">
+                <p class="product-name">
+                    <a href="/Product/Details/@product.id">@product.name</a>
+                </p>
+                <p class="qty-price">
+                    <span>Beden: @item.size</span><br />
+                    <span>Adet: @item.quantity</span><br />
+                    <span>Birim Fiyat: @product.discountPrice.ToString("N2") ₺</span><br />
+                    <strong>Toplam: @total.ToString("N2") ₺</strong>
+                </p>
+                <a href="#" class="btn-remove"><i class="fas fa-times"></i></a>
+            </div>
+        </li>
+    }
+}
+
+
         </ol>
         <div class="totals">
-            <span class="label">Total:</span>
-            <span class="price-total">
-                <span class="price">
-                    @Model.Products.Sum(p => p.quantity * p.discountPrice).ToString("N2") ₺
-                </span>
-            </span>
-        </div>
+    <span class="label">Toplam:</span>
+    <span class="price-total">
+        <span class="price">@grandTotal.ToString("N2") ₺</span>
+    </span>
+</div>
         <div class="actions">
             <a class="btn btn-dark" href="#">View Cart</a>
             <a class="btn btn-primary" href="#">Checkout</a>

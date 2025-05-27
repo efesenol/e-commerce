@@ -1,11 +1,10 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
 using e_commerce.data;
 using e_commerce.Entities;
 using e_commerce.Models;
-using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
 
 namespace e_commerce.Components
 {
@@ -13,12 +12,12 @@ namespace e_commerce.Components
     {
         private readonly MyContext _context;
 
-        public BasketViewComponent(MyContext _context)
+        public BasketViewComponent(MyContext context)
         {
-            this._context = _context;
+            _context = context;
         }
 
-        public IViewComponentResult Invoke(int id)
+        public IViewComponentResult Invoke()
         {
             var viewModel = new ViewModel();
             var userId = HttpContext.Session.GetInt32("Usersid");
@@ -26,8 +25,7 @@ namespace e_commerce.Components
             if (userId != null)
             {
                 var userBasket = _context.Basket.FirstOrDefault(x => x.userId == userId);
-                
-                // Sepeti yoksa oluştur
+
                 if (userBasket == null)
                 {
                     userBasket = new Basket { userId = userId.Value };
@@ -35,24 +33,26 @@ namespace e_commerce.Components
                     _context.SaveChanges();
                 }
 
-                // Sepet ürünlerini al
-                var productIds = _context.BasketItem
-                    .Where(x => x.basketId == userBasket.id)
-                    .Select(x => x.productId)
-                    .ToList();
+                // Sepetteki ürünleri ve bilgilerini getir
+                var basketItems = _context.BasketItem
+                .Where(x => x.basketId == userBasket.id)
+                .ToList();
+                var productIds = basketItems.Select(x => x.productId).ToList();
 
-                // Ürünleri çek
-                viewModel.Products = _context.Products
+                var products = _context.Products
                     .Where(p => productIds.Contains(p.id) && p.active)
                     .ToList();
+
+                viewModel.Products = products;
+                viewModel.BasketItem = basketItems;
             }
             else
             {
                 viewModel.Products = new List<Products>();
+                viewModel.BasketItem = new List<BasketItem>();
             }
 
             return View(viewModel);
         }
     }
-
 }

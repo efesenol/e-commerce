@@ -37,7 +37,7 @@ public class HomeController : Controller
     public IActionResult ToggleFavorite(int id)
     {
 
-        
+
         var product = _context.Products.FirstOrDefault(p => p.id == id);
         if (product == null)
             return NotFound();
@@ -78,13 +78,13 @@ public class HomeController : Controller
         return View(viewModel);
     }
     [HttpPost]
-    public IActionResult AddToBasket(int id)
+    public IActionResult AddToBasket(int id, string size, int quantity)
     {
         var userId = HttpContext.Session.GetInt32("Usersid");
         if (userId == null)
         {
-            TempData["ErrorMessage"] = "Sepete eklemek için giriş yapmalısınız.";
-            return Redirect("/Login");
+            TempData["ErrorMessage"] = "Lütfen giriş yapın.";
+            return RedirectToAction("Details", new { id });
         }
 
         var basket = _context.Basket.FirstOrDefault(b => b.userId == userId);
@@ -95,21 +95,31 @@ public class HomeController : Controller
             _context.SaveChanges();
         }
 
-        bool alreadyExists = _context.BasketItem
-            .Any(b => b.basketId == basket.id && b.productId == id);
+        var existingItem = _context.BasketItem
+            .FirstOrDefault(bi => bi.basketId == basket.id && bi.productId == id && bi.size == size);
 
-        if (!alreadyExists)
+        if (existingItem != null)
         {
-            _context.BasketItem.Add(new BasketItem
+            existingItem.quantity += quantity;
+            _context.BasketItem.Update(existingItem);
+        }
+        else
+        {
+            var newItem = new BasketItem
             {
                 basketId = basket.id,
-                productId = id
-            });
-            _context.SaveChanges();
+                productId = id,
+                size = size,
+                quantity = quantity
+            };
+            _context.BasketItem.Add(newItem);
         }
 
-        return RedirectToAction("Index", "Home");
+        _context.SaveChanges();
+        TempData["SuccessMessage"] = "Ürün sepete eklendi.";
+        return RedirectToAction("Details", new { id });
     }
+
     [Route("profilim")]
     public IActionResult Profile()
     {
@@ -122,7 +132,7 @@ public class HomeController : Controller
 
         var viewModel = new ViewModel();
         viewModel.Users = _context.Users.Where(x => x.active == true).ToList();
-        return View(viewModel); 
+        return View(viewModel);
     }
 
 }
