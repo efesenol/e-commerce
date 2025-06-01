@@ -83,8 +83,7 @@ public class HomeController : Controller
         var userId = HttpContext.Session.GetInt32("Usersid");
         if (userId == null)
         {
-            TempData["ErrorMessage"] = "Lütfen giriş yapın.";
-            return RedirectToAction("Details", new { id });
+            return Redirect("/Login");
         }
 
         var basket = _context.Basket.FirstOrDefault(b => b.userId == userId);
@@ -116,7 +115,6 @@ public class HomeController : Controller
         }
 
         _context.SaveChanges();
-        TempData["SuccessMessage"] = "Ürün sepete eklendi.";
         return RedirectToAction("Details", new { id });
     }
 
@@ -132,6 +130,14 @@ public class HomeController : Controller
 
         var viewModel = new ViewModel();
         viewModel.Users = _context.Users.Where(x => x.active == true).ToList();
+        return View(viewModel);
+    }
+    [Route("sepetim")]
+    public IActionResult Basket()
+    {
+        
+        var viewModel = new ViewModel();
+        viewModel.Products = _context.Products.Where(x => x.active == true).ToList();
         return View(viewModel);
     }
 
